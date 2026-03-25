@@ -46,6 +46,7 @@
 #include "gamestats.h"
 #include "filters.h"
 #include "tier0/icommandline.h"
+#include <convar.h>
 
 #ifdef HL2_EPISODIC
 #include "npc_alyx_episodic.h"
@@ -129,6 +130,38 @@ ConVar player_process_scene_events( "player_process_scene_events", "1", FCVAR_NO
 
 #define	FLASH_DRAIN_TIME	 1.1111	// 100 units / 90 secs
 #define	FLASH_CHARGE_TIME	 50.0f	// 100 units / 2 secs
+
+CON_COMMAND(give_suit, "Equip HEV-Suit")
+{
+	CBasePlayer *pBasePlayer = UTIL_GetCommandClient();
+
+	CHL2_Player* pPlayer = dynamic_cast<CHL2_Player*>(pBasePlayer);
+
+	if (pPlayer != NULL) 
+	{
+
+		pPlayer->EquipSuit(true);
+		Msg("Suit Equipped!\n");
+
+	}
+	
+}
+
+CON_COMMAND(remove_suit, "Remove HEV-Suit")
+{
+	CBasePlayer* pBasePlayer = UTIL_GetCommandClient();
+
+	CHL2_Player* pPlayer = dynamic_cast<CHL2_Player*>(pBasePlayer);
+
+	if (pPlayer != NULL)
+	{
+
+		pPlayer->RemoveSuit();
+		Msg("Suit Removed!\n");
+
+	}
+
+}
 
 
 //==============================================================================================
