@@ -23,43 +23,43 @@ Scheme
 	// controls use these to determine their settings
 	BaseSettings
 	{
-		"FgColor"			"255 220 0 100"
+		"FgColor"			"170 0 0 100"
 		"BgColor"			"0 0 0 76"
 
-		"Panel.FgColor"			"255 220 0 100"
+		"Panel.FgColor"			"170 0 0 100"
 		"Panel.BgColor"			"0 0 0 76"
 		
-		"BrightFg"		"255 220 0 255"
+		"BrightFg"		"220 0 0 255"
 
 		"DamagedBg"			"180 0 0 200"
 		"DamagedFg"			"180 0 0 230"
 		"BrightDamagedFg"		"255 0 0 255"
 
 		// weapon selection colors
-		"SelectionNumberFg"		"255 220 0 255"
-		"SelectionTextFg"		"255 220 0 255"
+		"SelectionNumberFg"		"170 0 0 255"
+		"SelectionTextFg"		"170 0 0 255"
 		"SelectionEmptyBoxBg" 	"0 0 0 80"
 		"SelectionBoxBg" 		"0 0 0 80"
 		"SelectionSelectedBoxBg" "0 0 0 80"
 		
-		"ZoomReticleColor"	"255 220 0 255"
+		"ZoomReticleColor"	"150 0 0 255"
 
 		// HL1-style HUD colors
-		"Yellowish"			"255 160 0 255"
-		"Normal"			"255 208 64 255"
-		"Caution"			"255 48 0 255"
+		"Yellowish"			"170 0 0 255"
+		"Normal"			"170 0 0 255"
+		"Caution"			"150 0 0 255"
 
 		// Top-left corner of the "Half-Life 2" on the main screen
-		"Main.Title1.X"				"76"
-		"Main.Title1.Y"				"145"
+		"Main.Title1.X"				"54"
+		"Main.Title1.Y"				"167"
 		"Main.Title1.Y_hidef"		"130"
-		"Main.Title1.Color"	"255 255 255 255"
+		"Main.Title1.Color"	"170 0 0 255"
 
 		// Top-left corner of secondary title e.g. "DEMO" on the main screen
 		"Main.Title2.X"				"76"
 		"Main.Title2.Y"				"190"
 		"Main.Title2.Y_hidef"		"174"
-		"Main.Title2.Color"	"255 255 255 200"
+		"Main.Title2.Color"	"150 0 0 200"
 
 		// Top-left corner of the menu on the main screen
 		"Main.Menu.X"			"53"
@@ -91,7 +91,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Courier New"
+				"name"		"Purista"
 				"tall"		"14"
 				"weight"	"400"
 				"antialias" "1"
@@ -102,7 +102,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Courier New"
+				"name"		"Purista"
 				"tall"		"14"
 				"weight"	"400"
 				"antialias" "1"
@@ -114,14 +114,14 @@ Scheme
 		{
 			"1"	[$X360]
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"12"
 				"weight"	"700"
 				"antialias" "1"
 			}
 			"1"	[$WIN32]
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"9"
 				"weight"	"700"
 				"antialias" "1"
@@ -129,7 +129,7 @@ Scheme
 			}
 			"2"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"12"
 				"weight"	"700"
 				"antialias" "1"
@@ -137,7 +137,7 @@ Scheme
 			}
 			"3"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"14"
 				"weight"	"900"
 				"antialias" "1"
@@ -145,7 +145,7 @@ Scheme
 			}
 			"4"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"20"
 				"weight"	"900"
 				"antialias" "1"
@@ -153,7 +153,7 @@ Scheme
 			}
 			"5"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"24"
 				"weight"	"900"
 				"antialias" "1"
@@ -165,7 +165,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"12"
 				"weight"	"0"
 				"range"		"0x0000 0x017F"
@@ -173,7 +173,7 @@ Scheme
 			}
 			"2"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"13"
 				"weight"	"0"
 				"range"		"0x0000 0x017F"
@@ -181,7 +181,7 @@ Scheme
 			}
 			"3"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"14"
 				"weight"	"0"
 				"range"		"0x0000 0x017F"
@@ -190,7 +190,7 @@ Scheme
 			}
 			"4"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"20"
 				"weight"	"0"
 				"range"		"0x0000 0x017F"
@@ -199,7 +199,7 @@ Scheme
 			}
 			"5"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"24"
 				"weight"	"0"
 				"range"		"0x0000 0x017F"
@@ -208,7 +208,7 @@ Scheme
 			}
 			"6"
 			{
-				"name"		"Arial"
+				"name"		"Purista"
 				"tall"		"12"
 				"range" 		"0x0000 0x00FF"
 				"weight"		"0"
@@ -218,7 +218,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"12"
 				"weight"	"0"
 				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
@@ -226,7 +226,7 @@ Scheme
 			}
 			"2"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"13"
 				"weight"	"0"
 				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
@@ -234,7 +234,7 @@ Scheme
 			}
 			"3"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"14"
 				"weight"	"0"
 				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
@@ -243,7 +243,7 @@ Scheme
 			}
 			"4"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"20"
 				"weight"	"0"
 				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
@@ -252,7 +252,7 @@ Scheme
 			}
 			"5"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"24"
 				"weight"	"0"
 				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
@@ -261,14 +261,14 @@ Scheme
 			}
 			"6"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"12"
 				"range" 		"0x0000 0x00FF"
 				"weight"		"0"
 			}
 			"7"
 			{
-				"name"		"Arial"
+				"name"		"Purista"
 				"tall"		"11"
 				"range" 		"0x0000 0x00FF"
 				"weight"		"0"
@@ -354,7 +354,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"HalfLife2"
+				"name"		"SMODGUI"
 				"tall"		"32"	[$WIN32]
 				"tall"		"38"	[$X360]
 				"weight"	"0"
@@ -379,7 +379,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"HalfLife2"
+				"name"		"SMODGUI"
 				"tall"		"32"	[$WIN32]
 				"tall"		"38"	[$X360]
 				"weight"	"0"
@@ -394,7 +394,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"HalfLife2" [!$OSX]
+				"name"		"SMODGUI" [!$OSX]
 				"name"		"Helvetica Bold" [$OSX]
 				"tall"		"16"	[$WIN32]
 				"tall"		"22"	[$X360]
@@ -408,7 +408,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"11"
 				"weight"	"700"
 				"antialias" "1"
@@ -426,7 +426,7 @@ Scheme
 			}
 			"1"	[$WIN32]
 			{
-				"name"		"Verdana" [!$OSX]
+				"name"		"Purista" [!$OSX]
 				"name"		"Helvetica Bold" [$OSX]
 				"tall"		"14"
 				"weight"	"1000"
@@ -438,7 +438,7 @@ Scheme
 		{
 			"1"	[$WIN32]
 			{
-				"name"		"Verdana" [!$OSX]
+				"name"		"Purista" [!$OSX]
 				"name"		"Helvetica" [$OSX]
 				"tall"		"11"
 				"weight"	"0"
@@ -447,7 +447,7 @@ Scheme
 			}
 			"1"	[$X360]
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"12"
 				"weight"	"700"
 				"antialias" "1"
@@ -458,7 +458,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"8"
 				"weight"	"700"
 				"antialias" "1"
@@ -466,7 +466,7 @@ Scheme
 			}
 			"2"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"10"
 				"weight"	"700"
 				"antialias" "1"
@@ -474,7 +474,7 @@ Scheme
 			}
 			"3"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"12"
 				"weight"	"900"
 				"antialias" "1"
@@ -482,7 +482,7 @@ Scheme
 			}
 			"4"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"16"
 				"weight"	"900"
 				"antialias" "1"
@@ -490,7 +490,7 @@ Scheme
 			}
 			"5"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"17"
 				"weight"	"1000"
 				"antialias" "1"
@@ -513,7 +513,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Courier New"
+				"name"		"Purista"
 				"tall"		"14"
 				"weight"	"400"
 				"outline"	"1"
@@ -523,7 +523,7 @@ Scheme
 		{
 			"1"	[$WIN32]
 			{
-				"name"		"Courier New"
+				"name"		"Purista"
 				"tall"		"14"
 				"weight"	"400"
 				"outline"	"1"
@@ -541,7 +541,7 @@ Scheme
 			"1"
 			{
 				"name"		"Tahoma" [!$OSX]
-				"name"		"Verdana" [$OSX]
+				"name"		"Purista" [$OSX]
 				"tall"		"26" [!$OSX]
 				"tall"		"24" [$OSX]
 				"weight"	"500"
@@ -552,7 +552,7 @@ Scheme
 			"1"
 			{
 				"name"		"Tahoma" [!$OSX]
-				"name"		"Verdana Italic" [$OSX]
+				"name"		"Purista" [$OSX]
 				"tall"		"26" [!$OSX]
 				"tall"		"24" [$OSX]
 				"weight"	"500"
@@ -564,7 +564,7 @@ Scheme
 			"1"
 			{
 				"name"		"Tahoma" [!$OSX]
-				"name"		"Verdana Bold" [$OSX]
+				"name"		"Purista SemiBold" [$OSX]
 				"tall"		"26" [!$OSX]
 				"tall"		"24" [$OSX]
 				"weight"	"900"
@@ -575,7 +575,7 @@ Scheme
 			"1"
 			{
 				"name"		"Tahoma" [!$OSX]
-				"name"		"Verdana Bold Italic" [$OSX]
+				"name"		"Purista SemiBold" [$OSX]
 				"tall"		"26" [!$OSX]
 				"tall"		"24" [$OSX]
 				"weight"	"900"
@@ -587,7 +587,7 @@ Scheme
 			"1"
 			{
 				"name"		"Tahoma" [!$OSX]
-				"name"		"Verdana" [$OSX]
+				"name"		"Purista" [$OSX]
 				"tall"		"16" [!$OSX]
 				"tall"		"14" [$OSX]
 				"tall_hidef"	"24"
@@ -610,7 +610,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Trebuchet MS"
+				"name"		"Purista SemiBold"
 				"tall"		"24"
 				"weight"	"900"
 				"range"		"0x0000 0x007F"	//	Basic Latin
@@ -622,7 +622,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Trebuchet MS"
+				"name"		"Purista SemiBold"
 				"tall"		"18"
 				"weight"	"900"
 			}
@@ -631,9 +631,9 @@ Scheme
 		{
 			"1"
 			{
-				"name"  "HL2EP2"
-				"tall"			"34"
-				"tall_hidef"	"48"
+				"name"  "AmazDooMLeft2"
+				"tall"			"145"
+				"tall_hidef"	"160"
 				"weight" "0"
 				"additive" "0"
 				"antialias" "1"
@@ -656,7 +656,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Trebuchet MS"
+				"name"		"Purista SemiBold"
 				"tall"		"20"
 				"weight"	"900"
 				"antialias" "1"
@@ -679,7 +679,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Verdana" [!$OSX]
+				"name"		"Purista" [!$OSX]
 				"name"		"Courier Bold" [$OSX]
 				"tall"		"9"
 				"weight"	"900"
@@ -691,7 +691,7 @@ Scheme
 			// note that this scales with the screen resolution
 			"1"
 			{
-				"name"		"Trebuchet MS" [!$OSX]
+				"name"		"Purista SemiBold" [!$OSX]
 				"name"		"Helvetica" [$OSX]
 				"tall"		"18"
 				"weight"	"900"
@@ -704,7 +704,7 @@ Scheme
 			// note that this scales with the screen resolution
 			"1"
 			{
-				"name"		"Trebuchet MS"
+				"name"		"Purista SemiBold"
 				"tall"		"24"
 				"weight"	"900"
 				"antialias" "1"
@@ -715,7 +715,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Trebuchet MS"
+				"name"		"Purista SemiBold"
 				"tall"		"14"
 				"weight"	"900"
 				"antialias" "1"
@@ -725,7 +725,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"12"
 				"weight"	"900"
 				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
@@ -733,7 +733,7 @@ Scheme
 			}
 			"2"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"13"	[$WIN32]
 				"tall"		"20"	[$X360]
 				"weight"	"900"
@@ -742,7 +742,7 @@ Scheme
 			}
 			"3"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"14"
 				"weight"	"900"
 				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
@@ -751,7 +751,7 @@ Scheme
 			}
 			"4"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"20"
 				"weight"	"900"
 				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
@@ -760,7 +760,7 @@ Scheme
 			}
 			"5"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"24"
 				"weight"	"900"
 				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
@@ -769,14 +769,14 @@ Scheme
 			}
 			"6"
 			{
-				"name"		"Verdana"
+				"name"		"Purista"
 				"tall"		"12"
 				"range" 		"0x0000 0x00FF"
 				"weight"		"900"
 			}
 			"7"
 			{
-				"name"		"Arial"
+				"name"		"Purista"
 				"tall"		"12"
 				"range" 		"0x0000 0x00FF"
 				"weight"		"800"
@@ -791,9 +791,11 @@ Scheme
 	// specifies all the custom (non-system) font files that need to be loaded to service the above described fonts
 	CustomFontFiles
 	{
-		"1"		"resource/HALFLIFE2.ttf"
+		"1"		"resource/Purista.ttf"
 		"2"		"resource/HL2crosshairs.ttf"
-		"3"	"resource/HL2EP2.ttf"		
+		"3"		"resource/Purista SemiBold.ttf"
+		"4"		"resource/SMODGUI.ttf"
+		"5"		"resource/AmazDooMLeft2.ttf"
+		"6"		"resource/HALFLIFE2.ttf"
 	}
-
 }

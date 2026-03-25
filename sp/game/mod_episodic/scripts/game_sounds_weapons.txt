@@ -1013,7 +1013,7 @@
 	"volume"		"0.7"
 	"soundlevel"	"SNDLVL_NORM"
 
-	"wave"		"weapons/mp5k/mp5k_reload.wav"
+	"wave"		"weapons/smg1/smg1_reload.wav"
 }
 
 "Weapon_MP5K.NPC_Reload"

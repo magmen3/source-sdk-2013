@@ -1,13 +1,13 @@
 "GameInfo"
 {
-	game 		"Nab-Life"
-	title 		"LIFE"
+	game 		"Forsakened"
+	title 		"Forsakened"
 	title2		""
 	supportsvr 0
 	commandline
 	{
 		-novid 1
-		+map sdk_vehicles
+		//+map sdk_vehicles
 		+sv_cheats 1
 		+impulse 101
 	}
