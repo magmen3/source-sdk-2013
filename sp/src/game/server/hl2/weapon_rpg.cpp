@@ -1927,7 +1927,7 @@ bool CWeaponRPG::Deploy( void )
 	return BaseClass::Deploy();
 }
 
-//-----------------------------------------------------------------------------
+//-----------------------------------	------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
 bool CWeaponRPG::Holster( CBaseCombatWeapon *pSwitchingTo )
@@ -1942,7 +1942,7 @@ bool CWeaponRPG::Holster( CBaseCombatWeapon *pSwitchingTo )
 
 //-----------------------------------------------------------------------------
 // Purpose: Turn on the guiding laser
-//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------	
 void CWeaponRPG::StartGuiding( void )
 {
 	// Don't start back up if we're overriding this
