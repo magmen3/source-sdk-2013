@@ -1329,6 +1329,8 @@ public:
 	void	InputUseDefaultAutoExposure( inputdata_t &inputdata );
 	void	InputUseDefaultBloomScale( inputdata_t &inputdata );
 
+	void Optimization();
+
 };
 
 typedef CHandle<CBasePlayer> CBasePlayerHandle;

