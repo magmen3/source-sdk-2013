@@ -712,7 +712,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"HL2EP2"
+				"name"		"AmazDooMLeft2"
 				"tall"		"72"
 				"weight"	"400"
 				"antialias"	"1"
@@ -724,7 +724,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"HL2EP2"
+				"name"		"AmazDooMLeft2"
 				"tall"		"120"
 				"weight"	"400"
 				"antialias"	"1"

@@ -1,0 +1,8 @@
+// Made with XBLAH's Modding tool.
+// Download it at https://xblah.dev/modding-tool/
+
+UnlitGeneric
+{
+	$basetexture	"VGUI/chapters/chapter1"
+	$vertexalpha	"1"
+}
