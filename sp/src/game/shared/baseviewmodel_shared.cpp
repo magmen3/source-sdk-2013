@@ -513,7 +513,7 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
-float g_fMaxViewModelLag = 1.5f;
+float g_fMaxViewModelLag = 0.5f;
 
 void CBaseViewModel::CalcViewModelLag( Vector& origin, QAngle& angles, QAngle& original_angles )
 {
@@ -582,8 +582,8 @@ void CBaseViewModel::CalcViewModelLag( Vector& origin, QAngle& angles, QAngle& o
 	}
 
 	//FIXME: These are the old settings that caused too many exposed polys on some models
-	VectorMA( origin, -pitch * 0.035f,	forward,	origin );
-	VectorMA( origin, -pitch * 0.03f,		right,	origin );
+	VectorMA( origin, pitch * 0.035f,	forward,	origin );
+	VectorMA( origin, pitch * 0.03f,		right,	origin );
 	VectorMA( origin, -pitch * 0.02f,		up,		origin);
 }
 

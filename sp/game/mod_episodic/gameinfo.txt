@@ -7,8 +7,11 @@
 	commandline
 	{
 		-novid 1
+		+map sdk_vehicles
+		+sv_cheats 1
+		+impulse 101
 	}
-	player_default_legs 1
+	player_default_legs 1 // not working animations pochemuto
 
 	type		singleplayer_only
 

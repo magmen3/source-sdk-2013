@@ -17,7 +17,7 @@
 
 // some cvars used by player movement system
 #if defined( HL2_DLL ) || defined( HL2_CLIENT_DLL )
-#define DEFAULT_GRAVITY_STRING	"600"
+#define DEFAULT_GRAVITY_STRING	"750"
 #else
 #define DEFAULT_GRAVITY_STRING	"800"
 #endif
@@ -37,7 +37,7 @@ float GetCurrentGravity( void )
 ConVar	sv_gravity		( "sv_gravity", DEFAULT_GRAVITY_STRING, FCVAR_NOTIFY | FCVAR_REPLICATED, "World gravity." );
 
 #if defined( DOD_DLL ) || defined( CSTRIKE_DLL ) || defined( HL1MP_DLL ) || defined( MAPBASE )
-ConVar	sv_stopspeed	( "sv_stopspeed","100", FCVAR_NOTIFY | FCVAR_REPLICATED, "Minimum stopping speed when on ground." );
+ConVar	sv_stopspeed	( "sv_stopspeed","50", FCVAR_NOTIFY | FCVAR_REPLICATED, "Minimum stopping speed when on ground." );
 #else
 ConVar	sv_stopspeed	( "sv_stopspeed","100", FCVAR_NOTIFY | FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY, "Minimum stopping speed when on ground." );
 #endif // DOD_DLL || CSTRIKE_DLL
@@ -59,7 +59,7 @@ ConVar	sv_maxspeed		( "sv_maxspeed", "320", FCVAR_NOTIFY | FCVAR_REPLICATED | FC
 #else
 
 #if defined( CSTRIKE_DLL ) || defined( HL1MP_DLL ) || defined( MAPBASE )
-	ConVar	sv_accelerate	( "sv_accelerate", "10", FCVAR_NOTIFY | FCVAR_REPLICATED);
+	ConVar	sv_accelerate	( "sv_accelerate", "6", FCVAR_NOTIFY | FCVAR_REPLICATED);
 #else
 	ConVar	sv_accelerate	( "sv_accelerate", "10", FCVAR_NOTIFY | FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY);
 #endif // CSTRIKE_DLL
@@ -67,12 +67,12 @@ ConVar	sv_maxspeed		( "sv_maxspeed", "320", FCVAR_NOTIFY | FCVAR_REPLICATED | FC
 #endif//_XBOX
 
 #if defined( CSTRIKE_DLL ) || defined( HL1MP_DLL ) || defined( MAPBASE )
-ConVar	sv_airaccelerate(  "sv_airaccelerate", "10", FCVAR_NOTIFY | FCVAR_REPLICATED);    
-ConVar	sv_wateraccelerate(  "sv_wateraccelerate", "10", FCVAR_NOTIFY | FCVAR_REPLICATED);     
+ConVar	sv_airaccelerate(  "sv_airaccelerate", "1", FCVAR_NOTIFY | FCVAR_REPLICATED);    
+ConVar	sv_wateraccelerate(  "sv_wateraccelerate", "5", FCVAR_NOTIFY | FCVAR_REPLICATED);     
 ConVar	sv_waterfriction(  "sv_waterfriction", "1", FCVAR_NOTIFY | FCVAR_REPLICATED);      
 ConVar	sv_footsteps	( "sv_footsteps", "1", FCVAR_NOTIFY | FCVAR_REPLICATED, "Play footstep sound for players" );
-ConVar	sv_rollspeed	( "sv_rollspeed", "200", FCVAR_NOTIFY | FCVAR_REPLICATED);
-ConVar	sv_rollangle	( "sv_rollangle", "0", FCVAR_NOTIFY | FCVAR_REPLICATED, "Max view roll angle");
+ConVar	sv_rollspeed	( "sv_rollspeed", "600", FCVAR_NOTIFY | FCVAR_REPLICATED);
+ConVar	sv_rollangle	( "sv_rollangle", "4", FCVAR_NOTIFY | FCVAR_REPLICATED, "Max view roll angle");
 #else
 ConVar	sv_airaccelerate(  "sv_airaccelerate", "10", FCVAR_NOTIFY | FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY );    
 ConVar	sv_wateraccelerate(  "sv_wateraccelerate", "10", FCVAR_NOTIFY | FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY );     
@@ -83,7 +83,7 @@ ConVar	sv_rollangle	( "sv_rollangle", "0", FCVAR_NOTIFY | FCVAR_REPLICATED | FCV
 #endif // CSTRIKE_DLL
 
 #if defined( DOD_DLL ) || defined( CSTRIKE_DLL ) || defined( HL1MP_DLL ) || defined( MAPBASE )
-ConVar	sv_friction		( "sv_friction","4", FCVAR_NOTIFY | FCVAR_REPLICATED, "World friction." );
+ConVar	sv_friction		( "sv_friction","3", FCVAR_NOTIFY | FCVAR_REPLICATED, "World friction." );
 #else
 ConVar	sv_friction		( "sv_friction","4", FCVAR_NOTIFY | FCVAR_REPLICATED | FCVAR_DEVELOPMENTONLY, "World friction." );
 #endif // DOD_DLL || CSTRIKE_DLL

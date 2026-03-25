@@ -12,6 +12,8 @@
 
 #include "hl2_player_shared.h"
 
+#include "mathlib/mathlib.h"
+
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
@@ -347,18 +349,18 @@ void CBaseHLCombatWeapon::AddViewmodelBob( CBaseViewModel *viewmodel, Vector &or
 	CalcViewmodelBob();
 
 	// Apply bob, but scaled down to 40%
-	VectorMA( origin, g_verticalBob * 0.1f, forward, origin );
+	VectorMA( origin, g_verticalBob * 0.65f, forward, origin );
 	
 	// Z bob a bit more
-	origin[2] += g_verticalBob * 0.1f;
+	origin[2] -= abs(g_lateralBob * 0.8f);
 	
 	// bob the angles
-	angles[ ROLL ]	+= g_verticalBob * 0.5f;
-	angles[ PITCH ]	-= g_verticalBob * 0.4f;
+	angles[ ROLL ] += g_lateralBob * -1.25f;
+	angles[ PITCH ]	-= g_verticalBob * 0.9f;
 
-	angles[ YAW ]	-= g_lateralBob  * 0.3f;
+	angles[ YAW ] += g_lateralBob * 2.5f;
 
-	VectorMA( origin, g_lateralBob * 0.8f, right, origin );
+	VectorMA( origin, g_lateralBob * -0.9f, right, origin );
 }
 
 //-----------------------------------------------------------------------------

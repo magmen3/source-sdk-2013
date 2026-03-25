@@ -18,7 +18,7 @@
 #endif
 
 #define	CROWBAR_RANGE	75.0f
-#define	CROWBAR_REFIRE	0.4f
+#define	CROWBAR_REFIRE	0.55f
 
 //-----------------------------------------------------------------------------
 // CWeaponCrowbar
