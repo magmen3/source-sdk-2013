@@ -1666,6 +1666,30 @@ void CBasePlayer::CalcPlayerView( Vector& eyeOrigin, QAngle& eyeAngles, float& f
 	}
 #endif
 
+
+
+#if defined( CLIENT_DLL ) // viewbobbing!!!
+
+	float time = gpGlobals->curtime;
+	float speed = GetLocalVelocity().Length2D();
+	if ((GetFlags() && FL_ONGROUND) && speed > 0.1f)
+	{
+
+		float roll_shake = 1.0f;
+		float pitch_shake = 0.5f; 
+		float offsetZ = 4.0f;
+
+		float intensity = 5.0f;
+
+		eyeAngles[ROLL] += sin(time * intensity) * roll_shake;
+		eyeAngles[PITCH] += sin(time * intensity) * pitch_shake;
+		eyeOrigin.z += sin(time * intensity) * offsetZ;
+
+
+	}
+
+
+#endif
 #if defined( CLIENT_DLL )
 	// Apply a smoothing offset to smooth out prediction errors.
 	Vector vSmoothOffset;
