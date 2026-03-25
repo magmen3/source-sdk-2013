@@ -133,9 +133,11 @@ ConVar player_process_scene_events( "player_process_scene_events", "1", FCVAR_NO
 
 CON_COMMAND(give_suit, "Equip HEV-Suit")
 {
-	CBasePlayer *pBasePlayer = UTIL_GetCommandClient();
+	//CBasePlayer *pBasePlayer = UTIL_GetCommandClient();
 
-	CHL2_Player* pPlayer = dynamic_cast<CHL2_Player*>(pBasePlayer);
+	//CHL2_Player* pPlayer = dynamic_cast<CHL2_Player*>(pBasePlayer);
+
+	CBasePlayer* pPlayer = UTIL_GetCommandClient();
 
 	if (pPlayer != NULL) 
 	{
@@ -149,9 +151,11 @@ CON_COMMAND(give_suit, "Equip HEV-Suit")
 
 CON_COMMAND(remove_suit, "Remove HEV-Suit")
 {
-	CBasePlayer* pBasePlayer = UTIL_GetCommandClient();
+	//CBasePlayer* pBasePlayer = UTIL_GetCommandClient();
 
-	CHL2_Player* pPlayer = dynamic_cast<CHL2_Player*>(pBasePlayer);
+	//CHL2_Player* pPlayer = dynamic_cast<CHL2_Player*>(pBasePlayer);
+
+	CBasePlayer* pPlayer = UTIL_GetCommandClient();
 
 	if (pPlayer != NULL)
 	{
@@ -160,6 +164,23 @@ CON_COMMAND(remove_suit, "Remove HEV-Suit")
 		Msg("Suit Removed!\n");
 
 	}
+
+}
+
+CON_COMMAND(drop, "Dropping weapon from the player")
+{
+	CBasePlayer *pPlayer = UTIL_GetCommandClient();
+
+	if (pPlayer)
+	{
+		CBaseCombatWeapon *pWeapon = pPlayer->GetActiveWeapon();
+
+		if (pWeapon)
+		{
+			pPlayer->Weapon_Drop(pWeapon, NULL, NULL);
+		}
+	}
+
 
 }
 
