@@ -2085,11 +2085,55 @@ void CBaseCombatWeapon::ItemPreFrame( void )
 //====================================================================================
 // WEAPON BEHAVIOUR
 //====================================================================================
+
+
+void CBaseCombatWeapon::EnableIronSights() {
+	if (m_bIronSighted) {
+		return;
+	}
+
+	Msg("Ironsight true\n");
+
+	m_bIronSighted = true;
+
+}
+
+void CBaseCombatWeapon::DisableIronSights() {
+	if (!m_bIronSighted) {
+		return;
+	}
+	Msg("Ironsight false\n");
+
+	m_bIronSighted = false;
+
+}
+
+Vector CBaseCombatWeapon::GetIronSightPos() {
+
+	return Vector(0, 0, 0);
+
+}
+
+bool CBaseCombatWeapon::IsIronSighted( void ) const  {
+	return m_bIronSighted;
+}
+
 void CBaseCombatWeapon::ItemPostFrame( void )
 {
 	CBasePlayer *pOwner = ToBasePlayer( GetOwner() );
 	if (!pOwner)
 		return;
+
+	// Ironsight shared logic
+	if (pOwner->m_nButtons & IN_ATTACK2)
+	{
+
+		EnableIronSights(); // hop pyaniy
+	}
+	else
+	{
+		DisableIronSights(); // a potom vot tak vot hop i trezviy
+	}
 
 	UpdateAutoFire();
 
@@ -3430,6 +3474,7 @@ BEGIN_NETWORK_TABLE(CBaseCombatWeapon, DT_BaseCombatWeapon)
 	SendPropDataTable("LocalActiveWeaponData", 0, &REFERENCE_SEND_TABLE(DT_LocalActiveWeaponData), SendProxy_SendActiveLocalWeaponDataTable ),
 	SendPropModelIndex( SENDINFO(m_iViewModelIndex) ),
 	SendPropModelIndex( SENDINFO(m_iWorldModelIndex) ),
+	SendPropBool( SENDINFO(m_bIronSighted)),
 #ifdef MAPBASE
 	SendPropModelIndex( SENDINFO(m_iDroppedModelIndex) ),
 #endif
@@ -3441,6 +3486,7 @@ BEGIN_NETWORK_TABLE(CBaseCombatWeapon, DT_BaseCombatWeapon)
 #endif
 
 #else
+	RecvPropBool(RECVINFO(m_bIronSighted)),
 	RecvPropDataTable("LocalWeaponData", 0, 0, &REFERENCE_RECV_TABLE(DT_LocalWeaponData)),
 	RecvPropDataTable("LocalActiveWeaponData", 0, 0, &REFERENCE_RECV_TABLE(DT_LocalActiveWeaponData)),
 	RecvPropInt( RECVINFO(m_iViewModelIndex)),

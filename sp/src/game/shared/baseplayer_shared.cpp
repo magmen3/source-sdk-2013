@@ -1672,7 +1672,7 @@ void CBasePlayer::CalcPlayerView( Vector& eyeOrigin, QAngle& eyeAngles, float& f
 
 	float time = gpGlobals->curtime;
 	float speed = GetLocalVelocity().Length2D();
-	if ((GetFlags() && FL_ONGROUND) && speed > 0.1f)
+	if ((GetFlags() & FL_ONGROUND) && speed > 0.1f)
 	{
 
 		float roll_shake = 1.0f;
