@@ -1,8 +1,5 @@
-// Made with XBLAH's Modding tool.
-// Download it at https://xblah.dev/modding-tool/
-
-UnlitGeneric
+"UnlitGeneric"
 {
-	$basetexture	"VGUI/chapters/chapter2"
-	$vertexalpha	"1"
+	"$basetexture"		"VGUI/chapters/chapter2"
+	"$vertexalpha"		"1"
 }

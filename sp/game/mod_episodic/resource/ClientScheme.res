@@ -23,16 +23,16 @@ Scheme
 	// controls use these to determine their settings
 	BaseSettings
 	{
-		"FgColor"			"170 0 0 100"
+		"FgColor"			"255 0 0 255"
 		"BgColor"			"0 0 0 76"
 
-		"Panel.FgColor"			"170 0 0 100"
+		"Panel.FgColor"			"255 0 0 255"
 		"Panel.BgColor"			"0 0 0 76"
 		
-		"BrightFg"		"220 0 0 255"
+		"BrightFg"		"255 255 255 255"
 
-		"DamagedBg"			"180 0 0 200"
-		"DamagedFg"			"180 0 0 230"
+		"DamagedBg"			"190 0 0 200"
+		"DamagedFg"			"160 0 0 230"
 		"BrightDamagedFg"		"255 0 0 255"
 
 		// weapon selection colors
@@ -42,11 +42,11 @@ Scheme
 		"SelectionBoxBg" 		"0 0 0 80"
 		"SelectionSelectedBoxBg" "0 0 0 80"
 		
-		"ZoomReticleColor"	"150 0 0 255"
+		"ZoomReticleColor"	"0 0 0 2505"
 
 		// HL1-style HUD colors
 		"Yellowish"			"170 0 0 255"
-		"Normal"			"170 0 0 255"
+		"Normal"			"190 0 0 255"
 		"Caution"			"150 0 0 255"
 
 		// Top-left corner of the "Half-Life 2" on the main screen
@@ -122,7 +122,7 @@ Scheme
 			"1"	[$WIN32]
 			{
 				"name"		"Purista"
-				"tall"		"9"
+				"tall"		"12"
 				"weight"	"700"
 				"antialias" "1"
 				"yres"	"1 599"
@@ -130,7 +130,7 @@ Scheme
 			"2"
 			{
 				"name"		"Purista"
-				"tall"		"12"
+				"tall"		"14"
 				"weight"	"700"
 				"antialias" "1"
 				"yres"	"600 767"
@@ -138,7 +138,7 @@ Scheme
 			"3"
 			{
 				"name"		"Purista"
-				"tall"		"14"
+				"tall"		"16"
 				"weight"	"900"
 				"antialias" "1"
 				"yres"	"768 1023"
@@ -396,7 +396,7 @@ Scheme
 			{
 				"name"		"SMODGUI" [!$OSX]
 				"name"		"Helvetica Bold" [$OSX]
-				"tall"		"16"	[$WIN32]
+				"tall"		"18"	[$WIN32]
 				"tall"		"22"	[$X360]
 				"weight"	"1000"
 				"additive"	"1"
@@ -408,8 +408,8 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Purista"
-				"tall"		"11"
+				"name"		"SMODGUI"
+				"tall"		"13"
 				"weight"	"700"
 				"antialias" "1"
 				"additive"	"1"
@@ -417,18 +417,11 @@ Scheme
 		}
 		HudHintTextLarge
 		{
-			"1"	[$X360]
-			{
-				"bitmap"	"1"
-				"name"		"Buttons"
-				"scalex"	"1.0"
-				"scaley"	"1.0"
-			}
 			"1"	[$WIN32]
 			{
 				"name"		"Purista" [!$OSX]
 				"name"		"Helvetica Bold" [$OSX]
-				"tall"		"14"
+				"tall"		"16"
 				"weight"	"1000"
 				"antialias" "1"
 				"additive"	"1"
@@ -440,16 +433,8 @@ Scheme
 			{
 				"name"		"Purista" [!$OSX]
 				"name"		"Helvetica" [$OSX]
-				"tall"		"11"
+				"tall"		"13"
 				"weight"	"0"
-				"antialias" "1"
-				"additive"	"1"
-			}
-			"1"	[$X360]
-			{
-				"name"		"Purista"
-				"tall"		"12"
-				"weight"	"700"
 				"antialias" "1"
 				"additive"	"1"
 			}
@@ -459,24 +444,24 @@ Scheme
 			"1"
 			{
 				"name"		"Purista"
-				"tall"		"8"
-				"weight"	"700"
+				"tall"		"12"
+				"weight"	"650"
 				"antialias" "1"
 				"yres"	"1 599"
 			}
 			"2"
 			{
 				"name"		"Purista"
-				"tall"		"10"
-				"weight"	"700"
+				"tall"		"13"
+				"weight"	"650"
 				"antialias" "1"
 				"yres"	"600 767"
 			}
 			"3"
 			{
 				"name"		"Purista"
-				"tall"		"12"
-				"weight"	"900"
+				"tall"		"14"
+				"weight"	"650"
 				"antialias" "1"
 				"yres"	"768 1023"
 			}
@@ -484,15 +469,15 @@ Scheme
 			{
 				"name"		"Purista"
 				"tall"		"16"
-				"weight"	"900"
+				"weight"	"650"
 				"antialias" "1"
 				"yres"	"1024 1199"
 			}
 			"5"
 			{
 				"name"		"Purista"
-				"tall"		"17"
-				"weight"	"1000"
+				"tall"		"18"
+				"weight"	"650"
 				"antialias" "1"
 				"yres"	"1200 10000"
 			}

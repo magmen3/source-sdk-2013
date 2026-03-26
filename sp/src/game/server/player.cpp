@@ -1146,12 +1146,12 @@ void CBasePlayer::TraceAttack( const CTakeDamageInfo &inputInfo, const Vector &v
 // Input   :
 // Output  :
 //------------------------------------------------------------------------------
+color32 red = { 128,0,0,128 };
 void CBasePlayer::DamageEffect(float flDamage, int fDamageType)
 {
 	if (fDamageType & DMG_CRUSH)
 	{
 		//Red damage indicator
-		color32 red = {128,0,0,128};
 		UTIL_ScreenFade( this, red, 1.0f, 0.1f, FFADE_IN );
 	}
 	else if (fDamageType & DMG_DROWN)
@@ -1159,11 +1159,14 @@ void CBasePlayer::DamageEffect(float flDamage, int fDamageType)
 		//Red damage indicator
 		color32 blue = {0,0,128,128};
 		UTIL_ScreenFade( this, blue, 1.0f, 0.1f, FFADE_IN );
+		ViewPunch(QAngle(random->RandomInt(-0.5, 0.5), random->RandomInt(-0.5, 0.5), random->RandomInt(-0.5, 0.5)));
 	}
 	else if (fDamageType & DMG_SLASH)
 	{
 		// If slash damage shoot some blood
+		UTIL_ScreenFade(this, red, 1.0f, 0.1f, FFADE_IN);
 		SpawnBlood(EyePosition(), g_vecAttackDir, BloodColor(), flDamage);
+		ViewPunch(QAngle(random->RandomInt(-0.2, 0.2), random->RandomInt(-0.2, 0.2), random->RandomInt(-0.2, 0.2)));
 	}
 	else if (fDamageType & DMG_PLASMA)
 	{
@@ -1176,7 +1179,7 @@ void CBasePlayer::DamageEffect(float flDamage, int fDamageType)
 		// calls are just expensive ways of returning zero. This code has always been this
 		// way and has never had any value. clang complains about the conversion from a
 		// literal floating-point number to an integer.
-		//ViewPunch(QAngle(random->RandomInt(-0.1,0.1), random->RandomInt(-0.1,0.1), random->RandomInt(-0.1,0.1)));
+		ViewPunch(QAngle(random->RandomInt(-0.1,0.1), random->RandomInt(-0.1,0.1), random->RandomInt(-0.1,0.1)));
 
 		// Burn sound 
 		EmitSound( "Player.PlasmaDamage" );
@@ -1189,6 +1192,8 @@ void CBasePlayer::DamageEffect(float flDamage, int fDamageType)
 	else if ( fDamageType & DMG_BULLET )
 	{
 		EmitSound( "Flesh.BulletImpact" );
+		UTIL_ScreenFade(this, red, 1.0f, 0.1f, FFADE_IN);
+		ViewPunch(QAngle(random->RandomInt(-0.5, 0.5), random->RandomInt(-0.5, 0.5), random->RandomInt(-0.5, 0.5)));
 	}
 }
 
@@ -1907,6 +1912,12 @@ void CBasePlayer::Event_Killed( const CTakeDamageInfo &info )
 
 	// reset FOV
 	SetFOV( this, 0 );
+
+	color32 black = { 0,0,0,255 };
+	UTIL_ScreenFade(this, black, 1.0f, 10.0f, FFADE_IN);
+
+	SpawnBlood(EyePosition(), g_vecAttackDir, BloodColor(), 10.0f);
+	ViewPunch(QAngle(random->RandomInt(-0.5, 0.5), random->RandomInt(-0.5, 0.5), random->RandomInt(-0.5, 0.5)));
 	
 	if ( FlashlightIsOn() )
 	{
@@ -1938,6 +1949,8 @@ void CBasePlayer::Event_Dying( const CTakeDamageInfo& info )
 	angles.z = 0;
 	
 	SetLocalAngles( angles );
+
+	engine->ClientCommand(edict(), "stopsound");
 
 	SetThink(&CBasePlayer::PlayerDeathThink);
 	SetNextThink( gpGlobals->curtime + 0.1f );
@@ -2307,6 +2320,8 @@ void CBasePlayer::PlayerDeathThink(void)
 	}
 	
 	StopAnimation();
+
+	engine->ClientCommand(edict(), "stopsound");
 
 	IncrementInterpolationFrame();
 	m_flPlaybackRate = 0.0;
