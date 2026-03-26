@@ -477,6 +477,24 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 	}
 #endif
 
+	if (pWeapon)
+	{
+		engine->Con_NPrintf(10, "IsIronReloading(CL): %d", pWeapon->m_bInReload);
+	}
+
+	if (pWeapon && pWeapon->IsIronSighted())
+	{
+		Vector x, y, z;
+		AngleVectors(eyeAngles, &x, &y, &z);
+
+		vmorigin += x * -5.0f;
+		vmorigin += y * -6.2f;
+		vmorigin += z * 2.1f;
+
+
+	}
+
+
 	SetLocalOrigin( vmorigin );
 	SetLocalAngles( vmangles );
 
@@ -508,6 +526,7 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 #endif
 #endif
 
+	
 }
 
 //-----------------------------------------------------------------------------

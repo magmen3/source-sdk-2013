@@ -335,7 +335,13 @@ public:
 
 	// Weapon firing
 	virtual void			PrimaryAttack( void );						// do "+ATTACK"
-	virtual void			SecondaryAttack( void ) { return; }			// do "+ATTACK2"
+	virtual void			SecondaryAttack( void ) { return; }			// do "+ATTACK2" // blya nahui eti EBJlaHbl void v argumentah pishut 
+
+	// FORSAKENED Weapon ironsights
+	
+	virtual void			EnableIronSights();
+	virtual void			DisableIronSights();
+	virtual Vector			GetIronSightPos();
 
 	// Firing animations
 	virtual Activity		GetPrimaryAttackActivity( void );
@@ -422,6 +428,7 @@ public:
 	virtual bool			UsesClipsForAmmo1( void ) const;
 	virtual bool			UsesClipsForAmmo2( void ) const;
 	bool					IsMeleeWeapon() const;
+	bool					IsIronSighted( void ) const;
 #ifdef MAPBASE
 	virtual float			GetViewmodelFOVOverride() const;
 	float					GetBobScale() const;
@@ -679,6 +686,7 @@ public:
 	CNetworkVar( int, m_nViewModelIndex );
 
 	// Weapon firing
+	CNetworkVar(bool, m_bIronSighted);
 	CNetworkVar( float, m_flNextPrimaryAttack );						// soonest time ItemPostFrame will call PrimaryAttack
 	CNetworkVar( float, m_flNextSecondaryAttack );					// soonest time ItemPostFrame will call SecondaryAttack
 	CNetworkVar( float, m_flTimeWeaponIdle );							// soonest time ItemPostFrame will call WeaponIdle
