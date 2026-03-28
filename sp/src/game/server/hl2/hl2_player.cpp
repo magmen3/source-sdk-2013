@@ -88,9 +88,9 @@ extern ConVar player_squad_autosummon_enabled;
 
 extern int gEvilImpulse101;
 
-ConVar sv_autojump( "sv_autojump", "0" );
+ConVar sv_autojump( "sv_autojump", "1" );
 
-ConVar hl2_walkspeed( "hl2_walkspeed", "90" );
+ConVar hl2_walkspeed( "hl2_walkspeed", "120" );
 ConVar hl2_normspeed( "hl2_normspeed", "120" );
 ConVar hl2_sprintspeed( "hl2_sprintspeed", "240" );
 

@@ -2351,7 +2351,6 @@ void CGameMovement::PlaySwimSound()
 	MoveHelper()->StartSound( mv->GetAbsOrigin(), "Player.Swim" );
 }
 
-
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
@@ -2505,8 +2504,9 @@ bool CGameMovement::CheckJumpButton( void )
 
 	mv->m_outJumpVel.z += mv->m_vecVelocity[2] - startz;
 	mv->m_outStepHeight += 0.15f;
-
+	
 	OnJump(mv->m_outJumpVel.z);
+	player->ViewPunch(QAngle(-4, 0, 1));
 
 	// Set jump time.
 	if ( gpGlobals->maxClients == 1 )
@@ -2532,7 +2532,6 @@ bool CGameMovement::CheckJumpButton( void )
 	mv->m_nOldButtons |= IN_JUMP;	// don't jump again until released
 	return true;
 }
-
 
 //-----------------------------------------------------------------------------
 // Purpose: 
@@ -3973,6 +3972,7 @@ void CGameMovement::CheckFalling( void )
 
 	// let any subclasses know that the player has landed and how hard
 	OnLand(player->m_Local.m_flFallVelocity);
+	player->ViewPunch(QAngle(4, 0, 1));
 	
 	//
 	// Clear the fall velocity so the impact doesn't happen again.

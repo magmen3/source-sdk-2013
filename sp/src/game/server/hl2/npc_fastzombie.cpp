@@ -33,6 +33,7 @@
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
+#include <gib.h>
 
 #define FASTZOMBIE_IDLE_PITCH			35
 #define FASTZOMBIE_MIN_PITCH			70
@@ -1880,6 +1881,20 @@ void CFastZombie::Event_Killed( const CTakeDamageInfo &info )
 
 	}
 #endif
+
+	if ((info.GetDamageType() & (DMG_BUCKSHOT | DMG_BLAST)) && (info.GetDamage() >= (m_iMaxHealth * 0.85f)))
+	{
+		SetModel("models/Gibs/Fast_Zombie_Legs.mdl");
+
+		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_spine.mdl", 5);
+		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_scapula.mdl", 5);
+		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS.mdl", 5);
+		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_rib.mdl", 5);
+
+		Vector damageDir = info.GetDamageForce();
+		VectorNormalize(damageDir);
+		UTIL_BloodSpray(WorldSpaceCenter(), damageDir, BLOOD_COLOR_YELLOW, 48, FX_BLOODSPRAY_CLOUD);
+	}
 
 	BaseClass::Event_Killed( dInfo );
 }

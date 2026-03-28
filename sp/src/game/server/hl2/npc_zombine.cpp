@@ -37,6 +37,7 @@
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
+#include <gib.h>
 
 enum
 {	
@@ -495,6 +496,20 @@ void CNPC_Zombine::DropGrenade( Vector vDir )
 
 void CNPC_Zombine::Event_Killed( const CTakeDamageInfo &info )
 {
+	if ((info.GetDamageType() & (DMG_BUCKSHOT | DMG_BLAST)) && (info.GetDamage() >= (m_iMaxHealth * 0.85f)))
+	{
+		SetModel("models/zombie/zombie_soldier_legs.mdl");
+
+		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_spine.mdl", 5);
+		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_scapula.mdl", 5);
+		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS.mdl", 5);
+		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_rib.mdl", 5);
+
+		Vector damageDir = info.GetDamageForce();
+		VectorNormalize(damageDir);
+		UTIL_BloodSpray(WorldSpaceCenter(), damageDir, BLOOD_COLOR_YELLOW, 48, FX_BLOODSPRAY_CLOUD);
+	}
+
 	BaseClass::Event_Killed( info );
 
 	if ( HasGrenade() )

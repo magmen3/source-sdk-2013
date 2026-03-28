@@ -720,7 +720,7 @@ bool CAI_BaseNPC::FriendlyFireEnabled()
 	if (HL2GameRules()->GlobalFriendlyFire() != TRS_NONE)
 		return HL2GameRules()->GlobalFriendlyFire() == TRS_TRUE;
 
-	return !(CapabilitiesGet() & bits_CAP_FRIENDLY_DMG_IMMUNE);
+	return true; //!(CapabilitiesGet() & bits_CAP_FRIENDLY_DMG_IMMUNE);
 }
 
 //-----------------------------------------------------------------------------

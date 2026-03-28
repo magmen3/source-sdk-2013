@@ -300,7 +300,7 @@
 "Weapon_Crowbar.Melee_HitWorld"
 {
 	"channel"		"CHAN_WEAPON"
-	"volume"		"0.7"
+	"volume"		"0.5"
 	"soundlevel"	"SNDLVL_90dB"
 	"pitch"			"90,120"
 
@@ -340,7 +340,7 @@
 "Weapon_Pipe.Melee_HitWorld"
 {
 	"channel"		"CHAN_WEAPON"
-	"volume"		"0.2"
+	"volume"		"0.4"
 	"soundlevel"	"SNDLVL_90dB"
 	"pitch"			"65,75"
 

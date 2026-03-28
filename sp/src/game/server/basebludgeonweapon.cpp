@@ -350,6 +350,7 @@ void CBaseHLBludgeonWeapon::Swing( int bIsSecondary )
 	triggerInfo.SetDamagePosition( traceHit.startpos );
 	triggerInfo.SetDamageForce( forward );
 	TraceAttackToTriggers( triggerInfo, traceHit.startpos, traceHit.endpos, forward );
+	AddViewKick();
 
 	if ( traceHit.fraction == 1.0 )
 	{

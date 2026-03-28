@@ -99,3 +99,6 @@ sp/src/devtools/gcc9+support.o
 
 # VPK files
 *.vpk
+*.bsp
+*.ain
+sp/game/mod_episodic/save/*

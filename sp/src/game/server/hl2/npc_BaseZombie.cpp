@@ -2444,6 +2444,20 @@ void CNPC_BaseZombie::Event_Killed( const CTakeDamageInfo &info )
 		UTIL_BloodSpray( WorldSpaceCenter(), vecDamageDir, BLOOD_COLOR_YELLOW, 8, FX_BLOODSPRAY_CLOUD );
 	}
 
+	if ((info.GetDamageType() & (DMG_BUCKSHOT | DMG_BLAST)) && (info.GetDamage() >= (m_iMaxHealth * 0.85f)))
+	{
+		SetModel("models/zombie/classic_legs.mdl");
+
+		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_spine.mdl", 5);
+		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_scapula.mdl", 5);
+		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS.mdl", 5);
+		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_rib.mdl", 5);
+
+		Vector damageDir = info.GetDamageForce();
+		VectorNormalize(damageDir);
+		UTIL_BloodSpray(WorldSpaceCenter(), damageDir, BLOOD_COLOR_YELLOW, 48, FX_BLOODSPRAY_CLOUD);
+	}
+
    	BaseClass::Event_Killed( info );
 }
 
