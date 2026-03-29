@@ -104,3 +104,4 @@ sp/src/devtools/gcc9+support.o
 
 # Other stuff
 sp/game/forsakened/save/*
+sp/game/forsakened/start.ink
