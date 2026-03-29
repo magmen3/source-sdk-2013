@@ -195,7 +195,7 @@ void PhysicsReset()
 }
 
 
-ConVar cl_ragdoll_collide( "cl_ragdoll_collide", "0" );
+ConVar cl_ragdoll_collide( "cl_ragdoll_collide", "1" );
 
 int CCollisionEvent::ShouldCollide( IPhysicsObject *pObj0, IPhysicsObject *pObj1, void *pGameData0, void *pGameData1 )
 #if _DEBUG

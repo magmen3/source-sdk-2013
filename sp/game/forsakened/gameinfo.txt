@@ -9,6 +9,7 @@
 	"icon"									"resource/icon"
 	"CommandLine"
 	{
+		"+thirdperson"		"1"
 		"-gamepadui"		"1"
 		"-novid"			"1"
 		"+map"				"sdk_vehicles"

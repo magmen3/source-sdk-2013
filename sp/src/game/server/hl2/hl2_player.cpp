@@ -3964,7 +3964,7 @@ void CHL2_Player::PickupObject( CBaseEntity *pObject, bool bLimitMassAndSize )
 	
 	if ( bLimitMassAndSize == true )
 	{
-		if ( CBasePlayer::CanPickupObject( pObject, 35, 128 ) == false )
+		if ( CBasePlayer::CanPickupObject( pObject, 935, 9128 ) == false )
 			 return;
 	}
 

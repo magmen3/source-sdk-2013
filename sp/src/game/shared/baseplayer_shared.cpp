@@ -1665,31 +1665,49 @@ void CBasePlayer::CalcPlayerView( Vector& eyeOrigin, QAngle& eyeAngles, float& f
 		vieweffects->ApplyShake( eyeOrigin, eyeAngles, 1.0 );
 	}
 #endif
-
-
-
-#if defined( CLIENT_DLL ) // viewbobbing!!!
-
-	float time = gpGlobals->curtime;
-	float speed = GetLocalVelocity().Length2D();
-	if ((GetFlags() & FL_ONGROUND) && speed > 0.1f)
+if (1) // firstperson!!!
+{
+	int iEyeAttachment = LookupAttachment("eyes");
+	if (iEyeAttachment <= 0)
+		iEyeAttachment = LookupAttachment("eye");
+	if (iEyeAttachment > 0)
 	{
+		Vector vecAttachOrigin;
+		QAngle angAttachAngles;
 
-		float roll_shake = 1.0f;
-		float pitch_shake = 0.5f; 
-		float offsetZ = 4.0f;
+		if (GetAttachment(iEyeAttachment, vecAttachOrigin, angAttachAngles))
+		{
+			static Vector s_vecLastFilteredOrigin = vecAttachOrigin;
 
-		float intensity = 5.0f;
+			float flLerpFactor = 0.3f;
+			Vector vecFilteredOrigin = Lerp(flLerpFactor, s_vecLastFilteredOrigin, vecAttachOrigin);
 
-		eyeAngles[ROLL] += sin(time * intensity) * roll_shake;
-		eyeAngles[PITCH] += sin(time * intensity) * pitch_shake;
-		eyeOrigin.z += sin(time * intensity) * offsetZ;
-
-
+			eyeOrigin = vecFilteredOrigin;
+			s_vecLastFilteredOrigin = vecFilteredOrigin;
+		}
 	}
+} else {
+	#if defined( CLIENT_DLL ) // viewbobbing!!!
+		float time = gpGlobals->curtime;
+		float speed = GetLocalVelocity().Length2D();
+		if ((GetFlags() & FL_ONGROUND) && speed > 0.1f)
+		{
+
+			float roll_shake = 1.0f;
+			float pitch_shake = 0.5f;
+			float offsetZ = 4.0f;
+
+			float intensity = 5.0f;
+
+			eyeAngles[ROLL] += sin(time * intensity) * roll_shake;
+			eyeAngles[PITCH] += sin(time * intensity) * pitch_shake;
+			eyeOrigin.z += sin(time * intensity) * offsetZ;
 
 
-#endif
+		}
+	#endif
+}
+
 #if defined( CLIENT_DLL )
 	// Apply a smoothing offset to smooth out prediction errors.
 	Vector vSmoothOffset;
