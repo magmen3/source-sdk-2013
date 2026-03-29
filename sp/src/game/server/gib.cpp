@@ -284,12 +284,12 @@ void CGib::SpawnSpecificGibs(	CBaseEntity*	pVictim,
 		if ( pVictim != NULL )
 		{
 			pGib->SetOwnerEntity( pVictim );
-		}
 
-		//If pVictim is on fire, ignite pVictim's gibs as well.
-		if (pVictim->GetFlags() & FL_ONFIRE)
-		{
-			pGib->Ignite((flLifetime - 1), false);
+			// If pVictim is on fire, ignite pVictim's gibs as well.
+			if (pVictim->GetFlags() & FL_ONFIRE)
+			{
+				pGib->Ignite((flLifetime - 1), false);
+			}
 		}
 	}
 }

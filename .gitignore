@@ -101,4 +101,6 @@ sp/src/devtools/gcc9+support.o
 *.vpk
 *.bsp
 *.ain
-sp/game/mod_episodic/save/*
+
+# Other stuff
+sp/game/forsakened/save/*
