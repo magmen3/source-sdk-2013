@@ -9,7 +9,7 @@
 	"icon"									"resource/icon"
 	"CommandLine"
 	{
-		"+thirdperson"		"1"
+		//"+thirdperson"		"1"
 		"-gamepadui"		"1"
 		"-novid"			"1"
 		"+map"				"sdk_vehicles"
@@ -18,7 +18,7 @@
 	}
 	"player_default_draw_externally"		"1"
 	"player_default_protagonist"			"gordon"
-	"player_default_legs"					"1"	// FIXME
+	"player_default_legs"					"1"
 	"FileSystem"
 	{
 		"SteamAppId"		"243730"

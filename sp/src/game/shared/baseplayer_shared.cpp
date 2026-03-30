@@ -1665,7 +1665,7 @@ void CBasePlayer::CalcPlayerView( Vector& eyeOrigin, QAngle& eyeAngles, float& f
 		vieweffects->ApplyShake( eyeOrigin, eyeAngles, 1.0 );
 	}
 #endif
-if (1) // firstperson!!!
+if (0) // firstperson!!!
 {
 	int iEyeAttachment = LookupAttachment("eyes");
 	if (iEyeAttachment <= 0)
@@ -1677,13 +1677,15 @@ if (1) // firstperson!!!
 
 		if (GetAttachment(iEyeAttachment, vecAttachOrigin, angAttachAngles))
 		{
-			static Vector s_vecLastFilteredOrigin = vecAttachOrigin;
+			//static Vector s_vecLastFilteredOrigin = vecAttachOrigin;
 
-			float flLerpFactor = 0.3f;
-			Vector vecFilteredOrigin = Lerp(flLerpFactor, s_vecLastFilteredOrigin, vecAttachOrigin);
+			//float flLerpFactor = 0.3f;
+			//Vector vecFilteredOrigin = Lerp(flLerpFactor, s_vecLastFilteredOrigin, vecAttachOrigin);
 
-			eyeOrigin = vecFilteredOrigin;
-			s_vecLastFilteredOrigin = vecFilteredOrigin;
+			//eyeOrigin = vecFilteredOrigin;
+			//s_vecLastFilteredOrigin = vecFilteredOrigin;
+			eyeOrigin = vecAttachOrigin;
+			eyeAngles = angAttachAngles;
 		}
 	}
 } else {
@@ -1702,8 +1704,6 @@ if (1) // firstperson!!!
 			eyeAngles[ROLL] += sin(time * intensity) * roll_shake;
 			eyeAngles[PITCH] += sin(time * intensity) * pitch_shake;
 			eyeOrigin.z += sin(time * intensity) * offsetZ;
-
-
 		}
 	#endif
 }
