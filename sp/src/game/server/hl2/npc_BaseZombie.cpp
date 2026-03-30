@@ -2446,16 +2446,20 @@ void CNPC_BaseZombie::Event_Killed( const CTakeDamageInfo &info )
 
 	if ((info.GetDamageType() & (DMG_BUCKSHOT | DMG_BLAST)) && (info.GetDamage() >= (m_iMaxHealth * 0.85f)))
 	{
-		SetModel("models/zombie/classic_legs.mdl");
+		SetModel(GetLegsModel());
 
-		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_spine.mdl", 5);
-		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_scapula.mdl", 5);
-		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS.mdl", 5);
-		CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_rib.mdl", 5);
+		//CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_spine.mdl", 5);
+		//CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_scapula.mdl", 5);
+		//CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS.mdl", 5);
+		//CGib::SpawnSpecificGibs(this, 1, 750, 1500, "models/Gibs/HGIBS_rib.mdl", 5);
+
+		EmitSound("BaseCombatCharacter.CorpseGib");
+		CGib::SpawnRandomGibs(this, 16, GIB_ALIEN);
+		CGib::SpawnHeadGib(this);
 
 		Vector damageDir = info.GetDamageForce();
 		VectorNormalize(damageDir);
-		UTIL_BloodSpray(WorldSpaceCenter(), damageDir, BLOOD_COLOR_YELLOW, 48, FX_BLOODSPRAY_CLOUD);
+		UTIL_BloodSpray(WorldSpaceCenter(), damageDir, BLOOD_COLOR_YELLOW, 64, FX_BLOODSPRAY_CLOUD);
 	}
 
    	BaseClass::Event_Killed( info );
