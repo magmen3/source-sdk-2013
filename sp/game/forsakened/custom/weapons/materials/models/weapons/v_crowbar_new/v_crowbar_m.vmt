@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" 				"models\weapons\v_crowbar_new\v_crowbar_d"
+	"$bumpmap" 					"models\weapons\v_crowbar_new\v_crowbar_n"
+	
+	"$phong"					"1"
+	"$phongexponent"			"11"
+	"$phongboost"				"0.25"
+	"$phongfresnelranges"		"[2 4 6]"
+	"$phongtint"				"[0.8 0.85 1]"
+
+	"$envmap"					"env_cubemap"
+	"$normalmapalphaenvmapmask"	"1"
+	"$envmaptint"				"[0.04 0.04 .05]"
+
+}

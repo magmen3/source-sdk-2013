@@ -46,28 +46,28 @@ WeaponData
     {
         "weapon"
         {
-                "font"      "WeaponIcons"
+                "font"      "WeaponIconsCSS"
                 "character" "l"
         }
         "weapon_s"
         {
-                "font"      "WeaponIconsSelected"
+                "font"      WeaponIconsCSSSelected"
                 "character" "l"
         }
         "weapon_small"
         {
-                "font"      "WeaponIconsSmall"
-                "character" "l"
+                "font"      "WeaponIconsCSSSmall"
+                "character" "B"
         }
         "ammo"
         {
-                "font"      "WeaponIconsSmall"
-                "character" "u"
+                "font"      "overcharged_ammo"
+                "character" "q"
         }
         "ammo2"
         {
-                "font"      "WeaponIconsSmall"
-                "character" "z"
+                "font"      "overcharged_ammo"
+                "character" "q"
         }
         "crosshair"
         {

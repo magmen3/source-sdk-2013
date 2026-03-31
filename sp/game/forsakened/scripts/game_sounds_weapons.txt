@@ -1316,63 +1316,186 @@
 }
 
 // weapon_deagle
-"Weapon_deagle.Single"
+"Weapon_DEagle_CSGO.Single"
 {
 	"channel"		"CHAN_WEAPON"
-	"volume"		"0.93"
-	"soundlevel"		"SNDLVL_GUNFIRE"
-	"pitch"			"88,93"	
-
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_GUNFIRE"
+	"pitch"			"100"
 	"rndwave"
 	{
-		"wave"			")weapons/deagle/deagle_fire2.wav"
-		"wave"			")weapons/deagle/deagle_fire3.wav"
+		"wave"		")weapons/csgo/deagle/deagle_01.wav"
+		"wave"		")weapons/csgo/deagle/deagle_02.wav"
 	}
 }
 
-"Weapon_deagle.Reload"
+"Weapon_DEagle_CSGO.Draw"
 {
-	"channel"		"CHAN_ITEM"
-	"volume"		"0.7"
-	"soundlevel"		"SNDLVL_NORM"
-
-	"wave"			")weapons/deagle/reload1.wav"
+	"channel"		"CHAN_STATIC"
+	"volume"		"0.3"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/de_draw.wav"
 }
 
-"Weapon_deagle.OpenLoader"
+"Weapon_DEagle_CSGO.Clipout"
 {
 	"channel"		"CHAN_ITEM"
-	"volume"		"0.7"
-	"soundlevel"		"SNDLVL_NORM"
-
-	"wave"			"weapons/deagle/deagle_reload1.wav"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/de_clipout.wav"
 }
 
-"Weapon_deagle.RemoveLoader"
+"Weapon_DEagle_CSGO.Clipin"
 {
 	"channel"		"CHAN_ITEM"
-	"volume"		"0.7"
-	"soundlevel"		"SNDLVL_NORM"
-
-	"wave"			"weapons/deagle/deagle_reload4.wav"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/de_clipin.wav"
 }
 
-"Weapon_deagle.ReplaceLoader"
+"Weapon_DEagle_CSGO.Slideback"
 {
 	"channel"		"CHAN_ITEM"
-	"volume"		"0.7"
-	"soundlevel"		"SNDLVL_NORM"
-
-	"wave"			"weapons/deagle/deagle_reload3.wav"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/de_slideback.wav"
 }
 
-"Weapon_deagle.Spin"
+"Weapon_DEagle_CSGO.Slideforward"
 {
 	"channel"		"CHAN_ITEM"
-	"volume"		"0.7"
-	"soundlevel"		"SNDLVL_NORM"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/de_slideforward.wav"
+}
 
-	"wave"			"weapons/deagle/deagle_spin1.wav"
+"Weapon_DEagle_CSGO.WeaponMove1"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"0.05, 0.1"
+	"soundlevel"	"SNDLVL_65dB"
+	"pitch"			"98, 101"
+	"wave"			"weapons/csgo/movement1.wav"
+}
+
+"Weapon_DEagle_CSGO.WeaponMove2"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"0.05, 0.1"
+	"soundlevel"	"SNDLVL_65dB"
+	"pitch"			"98, 101"
+	"wave"			"weapons/csgo/movement2.wav"
+}
+
+"Weapon_DEagle_CSGO.WeaponMove3"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"0.05, 0.1"
+	"soundlevel"	"SNDLVL_65dB"
+	"pitch"			"98, 101"
+	"wave"			"weapons/csgo/movement3.wav"
+}
+
+"Weapon_DEagle_CSGO.WeaponMove4"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"0.05, 0.1"
+	"soundlevel"	"SNDLVL_65dB"
+	"pitch"			"98, 101"
+	"wave"			"weapons/csgo/deagle/de_draw.wav"
+}
+
+"Weapon_DEagle_CSGO.LookAt009"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/deagle_special_lookat_f009.wav"
+}
+
+"Weapon_DEagle_CSGO.LookAt036"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/deagle_special_lookat_f036.wav"
+}
+
+"Weapon_DEagle_CSGO.LookAt057"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/deagle_special_lookat_f057.wav"
+}
+
+"Weapon_DEagle_CSGO.LookAt081"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/deagle_special_lookat_f081.wav"
+}
+
+"Weapon_DEagle_CSGO.LookAt111"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/deagle_special_lookat_f111.wav"
+}
+
+"Weapon_DEagle_CSGO.LookAt133"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/deagle_special_lookat_f133.wav"
+}
+
+"Weapon_DEagle_CSGO.LookAt166"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/deagle_special_lookat_f166.wav"
+}
+
+"Weapon_DEagle_CSGO.LookAt193"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/deagle_special_lookat_f193.wav"
+}
+
+"Weapon_DEagle_CSGO.LookAt228"
+{
+	"channel"		"CHAN_STATIC"
+	"soundlevel"	"SNDLVL_65dB"
+	"wave"			"weapons/csgo/deagle/deagle_special_lookat_f228.wav"
+}
+
+// weapon_fists
+"Weapon_Fists.Single"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_75dB"
+	"pitch"			"95,105"
+
+	"rndwave"
+	{
+		"wave"		"weapons/nmrih/melee/fists/fist_swing1.wav"
+		"wave"		"weapons/nmrih/melee/fists/fist_swing2.wav"
+	}
+}
+
+"Weapon_Fists.Melee_Hit"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_75dB"
+	"pitch"			"95,105"
+
+	"rndwave"
+	{
+		"wave"		"weapons/nmrih/melee/fists/fist_hit1.wav"
+		"wave"		"weapons/nmrih/melee/fists/fist_hit2.wav"
+		"wave"		"weapons/nmrih/melee/fists/fist_hit3.wav"
+	}
 }
 
 // weapon_357

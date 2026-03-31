@@ -26,6 +26,7 @@ string_t gm_isz_class_Pistol;
 string_t gm_isz_class_Stunstick;
 string_t gm_isz_class_Crowbar;
 string_t gm_isz_class_Pipe;
+string_t gm_isz_class_Fists;
 string_t gm_isz_class_RPG;
 string_t gm_isz_class_357;
 string_t gm_isz_class_MP5K;
@@ -72,6 +73,7 @@ void InitGlobalStrings()
 	INITIALIZE_GLOBAL_STRING(gm_isz_class_Stunstick, "weapon_stunstick");
 	INITIALIZE_GLOBAL_STRING(gm_isz_class_Crowbar, "weapon_crowbar");
 	INITIALIZE_GLOBAL_STRING(gm_isz_class_Pipe, "weapon_pipe");
+	INITIALIZE_GLOBAL_STRING(gm_isz_class_Fists, "weapon_fists");
 	INITIALIZE_GLOBAL_STRING(gm_isz_class_RPG, "weapon_rpg");
 	INITIALIZE_GLOBAL_STRING(gm_isz_class_357, "weapon_357");
 	INITIALIZE_GLOBAL_STRING(gm_isz_class_Deagle, "weapon_deagle");

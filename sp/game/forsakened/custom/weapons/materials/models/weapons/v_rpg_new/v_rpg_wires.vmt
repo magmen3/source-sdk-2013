@@ -1,0 +1,15 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\weapons\v_rpg_new\v_rpg_wires_d"
+	"$bumpmap" "models\weapons\v_rpg_new\v_rpg_wires_n"
+
+	"$phong"					"1"
+	"$phongexponent"			"25"
+	"$phongboost"				"0.1"
+	"$phongfresnelranges"		"[2 4 6]"
+	"$phongtint"				"[0.6 0.7 0.75]"
+				
+	"$envmap"					"env_cubemap"
+	"$normalmapalphaenvmapmask"	"1"
+	"$envmaptint"				"[.025 .025 .025]"
+}

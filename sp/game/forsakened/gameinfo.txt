@@ -10,6 +10,7 @@
 	"CommandLine"
 	{
 		// "+thirdperson"		"1"
+		"+firstperson"		"1"
 		"-gamepadui"		"1"
 		"-novid"			"1"
 		"+map"				"sdk_vehicles"
@@ -19,6 +20,8 @@
 	"player_default_draw_externally"		"1"
 	"player_default_protagonist"			"gordon"
 	"player_default_legs"					"1"
+	"player_default_hands"					"models\weapons\c_arms_bare\c_arms_bare_gloves.mdl"
+
 	"FileSystem"
 	{
 		"SteamAppId"		"243730"

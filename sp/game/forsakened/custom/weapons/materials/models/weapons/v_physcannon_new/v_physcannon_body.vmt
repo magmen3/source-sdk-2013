@@ -1,0 +1,17 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\weapons\v_physcannon_new\v_physcannon_body_d"
+	"$bumpmap" "models\weapons\v_physcannon_new\v_physcannon_body_n"
+
+	"$selfillum" "1"
+
+	"$phong"					"1"
+	"$phongexponent"			"6"
+	"$phongboost"				"0.75"
+	"$phongfresnelranges"		"[2 4 6]"
+	"$phongtint"				"[0.6 0.7 0.75]"
+				
+	"$envmap"					"env_cubemap"
+	"$normalmapalphaenvmapmask"	"1"
+	"$envmaptint"				"[.033 .033 .033]"
+}

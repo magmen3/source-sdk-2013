@@ -1,0 +1,15 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\weapons\v_crossbow_new\v_crossbow_wire_d"
+	"$bumpmap" "models\weapons\v_crossbow_new\v_crossbow_wire_n"
+
+	"$phong"					"1"
+	"$phongexponent"			"10"
+	"$phongboost"				"1"
+	"$phongfresnelranges"		"[2 4 6]"
+	"$phongtint"				"[0.70 0.75 0.8]"
+				
+	"$envmap"					"env_cubemap"
+	"$normalmapalphaenvmapmask"	"1"
+	"$envmaptint"				"[.075 .075 .075]"
+}

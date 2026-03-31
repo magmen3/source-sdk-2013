@@ -418,7 +418,7 @@ void CalculateExplosiveDamageForce( CTakeDamageInfo *info, const Vector &vecDir,
 	Vector vecForce = vecDir;
 	VectorNormalize( vecForce );
 	vecForce *= flForceScale;
-	vecForce *= phys_pushscale.GetFloat();
+	vecForce *= phys_pushscale.GetFloat() / 2;
 	vecForce *= flScale;
 	info->SetDamageForce( vecForce );
 }
@@ -432,7 +432,7 @@ void CalculateBulletDamageForce( CTakeDamageInfo *info, int iBulletType, const V
 	Vector vecForce = vecBulletDir;
 	VectorNormalize( vecForce );
 	vecForce *= GetAmmoDef()->DamageForce( iBulletType );
-	vecForce *= phys_pushscale.GetFloat();
+	vecForce *= phys_pushscale.GetFloat() / 2;
 	vecForce *= flScale;
 	info->SetDamageForce( vecForce );
 	Assert(vecForce!=vec3_origin);

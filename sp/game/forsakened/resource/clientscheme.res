@@ -314,6 +314,58 @@ Scheme
 				"custom"	"1"
 			}
 		}
+		WeaponIconsCSS
+		{
+			"1"
+			{
+				"name"		"Counter-Strike"
+				"tall"		"64"
+				"tall_hidef"	"58"
+				"weight"	"0"
+				"antialias" "1"
+				"additive"	"1"
+				"custom"	"1"
+			}
+		}
+		WeaponIconsCSSSelected
+		{
+			"1"
+			{
+				"name"		"Counter-Strike"
+				"tall"		"64"
+				"tall_hidef"	"58"
+				"weight"	"0"
+				"antialias" "1"
+				"blur"		"5"
+				"scanlines"	"2"
+				"additive"	"1"
+				"custom"	"1"
+			}
+		}
+		WeaponIconsCSSSmall
+		{
+			"1"
+			{
+				"name"		"Counter-Strike"
+				"tall"		"32"
+				"weight"	"0"
+				"antialias" "1"
+				"additive"	"1"
+				"custom"	"1"
+			}
+		}
+		overcharged_ammo
+		{
+			"1"
+			{
+				"name"		"overcharged_ammo"
+				"tall"		"32"
+				"weight"	"0"
+				"antialias" "1"
+				"additive"	"1"
+				"custom"	"1"
+			}
+		}
 		Crosshairs
 		{
 			"1"
@@ -782,5 +834,7 @@ Scheme
 		"4"		"resource/SMODGUI.ttf"
 		"5"		"resource/AmazDooMLeft2.ttf"
 		"6"		"resource/HALFLIFE2.ttf"
+		"7"		"resource/cstrike.ttf"
+		"8"		"resource/overcharged_ammo.ttf"
 	}
 }

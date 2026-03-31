@@ -1,0 +1,14 @@
+UnlitGeneric
+{
+	$basetexture models/weapons/shared/scope/scope_dot_white
+	$translucent 1
+
+	Proxies
+	{
+		CrossHairColor
+		{
+			resultVar	"$color2"
+		}
+	}
+	
+}

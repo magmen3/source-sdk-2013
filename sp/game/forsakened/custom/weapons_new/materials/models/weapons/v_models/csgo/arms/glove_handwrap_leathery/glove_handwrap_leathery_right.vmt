@@ -1,0 +1,12 @@
+"vertexlitgeneric"
+{              
+	$basetexture				models\weapons\v_models\csgo\arms\glove_handwrap_leathery\glove_handwrap_leathery_color // black
+
+	$bumpmap					models\weapons\customization\glove_handwrap_leathery\glove_handwrap_leathery_normal
+	$masks1						white
+
+	$phongboost					1.0
+	$phongalbedoboost			7
+	$phongwarptexture			models\weapons\customization\materials\material_specwarp
+
+}              
