@@ -38,6 +38,10 @@
 
 #endif
 
+#ifdef CLIENT_DLL
+#include "c_baseplayer.h"
+#endif
+
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
@@ -59,6 +63,59 @@ ConVar tf_weapon_criticals_bucket_cap( "tf_weapon_criticals_bucket_cap", "1000.0
 ConVar tf_weapon_criticals_bucket_bottom( "tf_weapon_criticals_bucket_bottom", "-250.0", FCVAR_REPLICATED | FCVAR_CHEAT );
 ConVar tf_weapon_criticals_bucket_default( "tf_weapon_criticals_bucket_default", "300.0", FCVAR_REPLICATED | FCVAR_CHEAT );
 #endif // TF
+
+// ironsight dev convars
+
+void vm_adjust_callback ( IConVar *pConVar, char const *pOldString, float flOldValue );
+void vm_adjust_fov_callback ( IConVar *pConVar, char const *pOldString, float flOldValue );
+
+ConVar vm_adjust( "vm_adjust", "0", FCVAR_REPLICATED|FCVAR_CHEAT, "VM adjusting enabled", vm_adjust_callback );
+
+ConVar vm_adjust_forward( "vm_adjust_forward", "0", FCVAR_REPLICATED );
+ConVar vm_adjust_right( "vm_adjust_right", "0", FCVAR_REPLICATED );
+ConVar vm_adjust_up( "vm_adjust_up", "0", FCVAR_REPLICATED );
+
+ConVar vm_adjust_pitch( "vm_adjust_pitch", "0", FCVAR_REPLICATED );
+ConVar vm_adjust_yaw( "vm_adjust_yaw", "0", FCVAR_REPLICATED );
+ConVar vm_adjust_roll( "vm_adjust_roll", "0", FCVAR_REPLICATED );
+
+ConVar vm_adjust_fov( "vm_adjust_fov", "0", FCVAR_REPLICATED );
+
+
+void vm_adjust_callback( IConVar *pConVar, char const *pOldString, float flOldValue )
+{
+	ConVarRef sv_cheats( "sv_cheats" );
+	if( !sv_cheats.IsValid() || sv_cheats.GetBool() )
+		return;
+
+	ConVarRef var( pConVar );
+
+	if( var.GetBool() )
+		var.SetValue( "0" );
+}
+
+void vm_adjust_fov_callback( IConVar *pConVar, char const *pOldString, float flOldValue )
+{
+	if( !vm_adjust.GetBool() )
+		return;
+
+	ConVarRef var( pConVar );
+
+	CBasePlayer *pPlayer = 
+#ifdef GAME_DLL
+		UTIL_GetCommandClient();
+#else
+		C_BasePlayer::GetLocalPlayer();
+#endif
+	if( !pPlayer )
+		return;
+
+	if( !pPlayer->SetFOV( pPlayer, pPlayer->GetDefaultFOV() + var.GetFloat(), 0.1f ) )
+	{
+		Warning( "Could not set FOV\n" );
+		var.SetValue( "0" );
+	}
+}
 
 CBaseCombatWeapon::CBaseCombatWeapon()
 {
@@ -102,6 +159,9 @@ CBaseCombatWeapon::CBaseCombatWeapon()
 	m_nCritChecks = 1;
 	m_nCritSeedRequests = 0;
 #endif // TF
+
+	m_bIronSighted = false;
+	m_flIronsightTime = 0.0f;
 }
 
 //-----------------------------------------------------------------------------
@@ -2086,45 +2146,158 @@ void CBaseCombatWeapon::ItemPreFrame( void )
 // WEAPON BEHAVIOUR
 //====================================================================================
 
+// FORSAKENED Ironsight 
 
-void CBaseCombatWeapon::EnableIronSights() {
-	if (m_bIronSighted) {
-		return;
-	}
-
-	Msg("Ironsight true\n");
-
-	m_bIronSighted = true;
-
-}
-
-void CBaseCombatWeapon::DisableIronSights() {
-	if (!m_bIronSighted) {
-		return;
-	}
-	Msg("Ironsight false\n");
-
-	m_bIronSighted = false;
-
-}
-
-Vector CBaseCombatWeapon::GetIronSightPos() {
-
-	return Vector(0, 0, 0);
-
-}
-
-bool CBaseCombatWeapon::IsIronSighted( void ) const  {
-	return m_bIronSighted;
-}
-
-void CBaseCombatWeapon::ItemPostFrame( void )
+void CBaseCombatWeapon::SetIronsightTime()
 {
-	CBasePlayer *pOwner = ToBasePlayer( GetOwner() );
+	m_flIronsightTime = gpGlobals -> curtime;
+
+
+}
+
+
+void CBaseCombatWeapon::EnableIronSights() 
+{
+
+//#ifdef CLIENT_DLL
+//
+//	if ( !prediction->IsFirstTimePredicted() )
+//		return;
+//#endif
+
+	if (m_bIronSighted ) 
+		return;
+
+	CBasePlayer *pOwner = ToBasePlayer(GetOwner());
+
 	if (!pOwner)
 		return;
 
+	if (pOwner->SetFOV(this, pOwner->GetDefaultFOV() + GetIronsightFOV(), 1.0f))
+	{
+		SetIronsightTime();
+		Msg("Ironsight true\n");
+		m_bIronSighted = true;
+	}
+
+	//m_bIronSighted = true;
+	//SetIronsightTime();
+	//Msg("Ironsight true\n");
+
+}
+
+void CBaseCombatWeapon::DisableIronSights() 
+{
+
+//#ifdef CLIENT_DLL
+//
+//	if ( !prediction->IsFirstTimePredicted() )
+//		return;
+//#endif
+
+	if (!m_bIronSighted ) 
+		return;
+
+	CBasePlayer *pOwner = ToBasePlayer(GetOwner());
+
+	if (!pOwner)
+		return;
+
+	if (pOwner->SetFOV(this, 0, 0.2f))
+	{
+		SetIronsightTime();
+		Msg("Ironsight false\n");
+		m_bIronSighted = false;
+	}
+
+		//m_bIronSighted = false;
+		//SetIronsightTime();
+		//Msg("Ironsight false\n");
+
+}
+
+
+Vector CBaseCombatWeapon::GetIronsightPos() const
+{
+	if ( vm_adjust.GetBool() )
+		return Vector( vm_adjust_forward.GetFloat(), vm_adjust_right.GetFloat(), vm_adjust_up.GetFloat() );
+	return GetWpnData().IronsightPosOffset;
+}
+
+QAngle CBaseCombatWeapon::GetIronsightAng() const
+{
+	if ( vm_adjust.GetBool() )
+		return QAngle( vm_adjust_pitch.GetFloat(), vm_adjust_roll.GetFloat(), vm_adjust_yaw.GetFloat() );
+	return GetWpnData().IronsightAngOffset;
+}
+
+float CBaseCombatWeapon::GetIronsightFOV() const
+{
+	if ( vm_adjust.GetBool() )
+		return vm_adjust_fov.GetFloat();
+	return GetWpnData().IronsightFOVOffset;
+}
+
+bool CBaseCombatWeapon::IsIronSighted( void ) const  
+{
+	return ( m_bIronSighted || vm_adjust.GetBool() );
+}
+
+
+// FORSAKENED Weapon Lowering
+
+void CBaseCombatWeapon::WeaponLowering() 
+{
+	CBasePlayer *pOwner = ToBasePlayer( GetOwner() );
+
+	if (!pOwner)
+		return;
+
+	if ( !m_bWeaponLowered && ( pOwner->m_nButtons & IN_SPEED ) )
+	{
+		m_bWeaponLowered = true;
+		SendWeaponAnim(ACT_VM_IDLE_LOWERED);
+		m_flNextPrimaryAttack = gpGlobals -> curtime + GetViewModelSequenceDuration();
+		m_flNextSecondaryAttack = m_flNextPrimaryAttack;
+		SetWeaponIdleTime(m_flNextPrimaryAttack);
+	}
+	else if (m_bWeaponLowered && !( pOwner->m_nButtons & IN_SPEED) )
+	{
+		m_bWeaponLowered = false;
+		SendWeaponAnim(ACT_VM_IDLE);
+		m_flNextPrimaryAttack = gpGlobals -> curtime + GetViewModelSequenceDuration();
+		m_flNextSecondaryAttack = m_flNextPrimaryAttack;
+	}
+	if (m_bWeaponLowered)
+	{
+		if (gpGlobals->curtime > m_flNextPrimaryAttack)
+		{
+			SendWeaponAnim(ACT_VM_IDLE_LOWERED);
+			m_flNextPrimaryAttack = gpGlobals -> curtime + GetViewModelSequenceDuration();
+			m_flNextSecondaryAttack = m_flNextPrimaryAttack;
+			SetWeaponIdleTime(m_flNextPrimaryAttack);
+		}
+	}
+
+}
+
+
+void CBaseCombatWeapon::ItemPostFrame(void)
+{
+	CBasePlayer* pOwner = ToBasePlayer(GetOwner());
+	if (!pOwner)
+		return;
+
+	// WeaponLowering(); // potom
+
 	// Ironsight shared logic
+
+	if (m_bInReload == true)
+	{
+		DisableIronSights();
+	}
+	else
+
 	if (pOwner->m_nButtons & IN_ATTACK2)
 	{
 
@@ -2134,6 +2307,7 @@ void CBaseCombatWeapon::ItemPostFrame( void )
 	{
 		DisableIronSights(); // a potom vot tak vot hop i trezviy
 	}
+
 
 	UpdateAutoFire();
 
@@ -3083,6 +3257,8 @@ BEGIN_PREDICTION_DATA( CBaseCombatWeapon )
 	DEFINE_PRED_FIELD( m_iClip2, FIELD_INTEGER, FTYPEDESC_INSENDTABLE ),			
 
 	DEFINE_PRED_FIELD( m_nViewModelIndex, FIELD_INTEGER, FTYPEDESC_INSENDTABLE ),
+	DEFINE_PRED_FIELD( m_bIronSighted,    FIELD_BOOLEAN, FTYPEDESC_INSENDTABLE ),
+	DEFINE_PRED_FIELD( m_flIronsightTime, FIELD_FLOAT,   FTYPEDESC_INSENDTABLE ),
 
 	// Not networked
 
@@ -3474,7 +3650,8 @@ BEGIN_NETWORK_TABLE(CBaseCombatWeapon, DT_BaseCombatWeapon)
 	SendPropDataTable("LocalActiveWeaponData", 0, &REFERENCE_SEND_TABLE(DT_LocalActiveWeaponData), SendProxy_SendActiveLocalWeaponDataTable ),
 	SendPropModelIndex( SENDINFO(m_iViewModelIndex) ),
 	SendPropModelIndex( SENDINFO(m_iWorldModelIndex) ),
-	SendPropBool( SENDINFO(m_bIronSighted)),
+	SendPropBool(  SENDINFO(m_bIronSighted) ),
+	SendPropFloat( SENDINFO(m_flIronsightTime) ),
 #ifdef MAPBASE
 	SendPropModelIndex( SENDINFO(m_iDroppedModelIndex) ),
 #endif
@@ -3487,6 +3664,7 @@ BEGIN_NETWORK_TABLE(CBaseCombatWeapon, DT_BaseCombatWeapon)
 
 #else
 	RecvPropBool(RECVINFO(m_bIronSighted)),
+	RecvPropFloat(RECVINFO(m_flIronsightTime)),
 	RecvPropDataTable("LocalWeaponData", 0, 0, &REFERENCE_RECV_TABLE(DT_LocalWeaponData)),
 	RecvPropDataTable("LocalActiveWeaponData", 0, 0, &REFERENCE_RECV_TABLE(DT_LocalActiveWeaponData)),
 	RecvPropInt( RECVINFO(m_iViewModelIndex)),

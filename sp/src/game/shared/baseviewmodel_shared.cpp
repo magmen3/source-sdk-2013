@@ -420,6 +420,39 @@ void CBaseViewModel::SendViewModelMatchingSequence( int sequence )
 #include "ivieweffects.h"
 #endif
 
+
+// FORSAKENED VM Ironsight
+
+// TODO: Make ease in & ease out in ironsight animation
+void CBaseViewModel::CalcIronsight(Vector &pos, QAngle &ang)
+{
+	CBaseCombatWeapon *pWeapon = GetOwningWeapon();
+
+	float time = (gpGlobals -> curtime - pWeapon->m_flIronsightTime) * 2.5f;
+	float exp = (pWeapon -> IsIronSighted() ) ? 
+		(time > 1.0f) ? 1.0f : time : // if true then normal lerp
+		(time > 1.0f) ? 0.0f : 1.0f - time; // if false then inverse lerp
+	
+	if ( exp <= 0.001f )
+		return;
+
+	Vector newPos = pos;
+	QAngle newAng = ang;
+
+	Vector vForward, vRight, vUp, vOffset;
+	AngleVectors( newAng, &vForward, &vRight, &vUp );
+	vOffset = pWeapon -> GetIronsightPos();
+
+	newPos += vForward * vOffset.x;
+	newPos += vRight * vOffset.y;
+	newPos += vUp * vOffset.z;
+	newAng += pWeapon -> GetIronsightAng();
+
+	pos += (newPos - pos ) * exp;
+	ang += (newAng - ang ) * exp;
+
+}
+
 void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePosition, const QAngle& eyeAngles )
 {
 	// UNDONE: Calc this on the server?  Disabled for now as it seems unnecessary to have this info on the server
@@ -430,8 +463,9 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 
 	CBaseCombatWeapon *pWeapon = m_hWeapon.Get();
 	//Allow weapon lagging
-	if ( pWeapon != NULL )
+	if( pWeapon == NULL || !pWeapon->IsIronSighted() )
 	{
+		if (!pWeapon == NULL)
 #if defined( CLIENT_DLL )
 		if ( !prediction->InPrediction() )
 #endif
@@ -449,6 +483,9 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 #if defined( CLIENT_DLL )
 	if ( !prediction->InPrediction() )
 	{
+		if ( pWeapon != NULL )
+
+		if ( !pWeapon -> IsIronSighted() )
 		// Add lag
 		CalcViewModelLag( vmorigin, vmangles, vmangoriginal );
 
@@ -477,23 +514,27 @@ void CBaseViewModel::CalcViewModelView( CBasePlayer *owner, const Vector& eyePos
 	}
 #endif
 
+	//if (pWeapon)
+	//{
+	//	engine->Con_NPrintf(10, "IsIronReloading(CL): %d", pWeapon->m_bInReload);
+	//}
+
+	//if ( pWeapon && pWeapon->IsIronSighted() )
+	//{
+	//	Vector x, y, z;
+	//	AngleVectors(eyeAngles, &x, &y, &z);
+
+	//	vmorigin += x * -5.0f;
+	//	vmorigin += y * -6.2f;
+	//	vmorigin += z * 2.1f;
+
+
+	//}
+
 	if (pWeapon)
 	{
-		engine->Con_NPrintf(10, "IsIronReloading(CL): %d", pWeapon->m_bInReload);
+		CalcIronsight( vmorigin, vmangles );
 	}
-
-	if (pWeapon && pWeapon->IsIronSighted())
-	{
-		Vector x, y, z;
-		AngleVectors(eyeAngles, &x, &y, &z);
-
-		vmorigin += x * -5.0f;
-		vmorigin += y * -6.2f;
-		vmorigin += z * 2.1f;
-
-
-	}
-
 
 	SetLocalOrigin( vmorigin );
 	SetLocalAngles( vmangles );

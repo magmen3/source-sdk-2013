@@ -735,6 +735,35 @@ void C_BasePlayer::SetLocalViewAngles( const QAngle &viewAngles )
 	pl.v_angle = viewAngles;
 }
 
+//bool C_BasePlayer::SetFOV( C_BaseEntity *pRequester, int FOV, float zoomRate )
+//{
+//	//NOTENOTE: You MUST specify who is requesting the zoom change
+//	assert( pRequester != NULL );
+//	if ( pRequester == NULL )
+//		return false;
+//
+//	if( ( m_hZoomOwner.Get() != NULL ) && ( m_hZoomOwner.Get() != pRequester ) )
+//		return false;
+//	else
+//	{
+//		//FIXME: Maybe do this is as an accessor instead
+//		if ( FOV == 0 )
+//		{
+//			m_hZoomOwner = NULL;
+//		}
+//		else
+//		{
+//			m_hZoomOwner = pRequester;
+//		}
+//	}
+//
+//	m_iFOV = FOV;
+//
+//	m_Local.m_flFOVRate	= zoomRate;
+//
+//	return true;
+//}
+
 //-----------------------------------------------------------------------------
 // Purpose: 
 // Input  : ang - 
