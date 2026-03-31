@@ -9,7 +9,7 @@
 	"icon"									"resource/icon"
 	"CommandLine"
 	{
-		//"+thirdperson"		"1"
+		// "+thirdperson"		"1"
 		"-gamepadui"		"1"
 		"-novid"			"1"
 		"+map"				"sdk_vehicles"
@@ -32,6 +32,7 @@
 			"game+mod+mod_write+default_write_path"		"|gameinfo_path|."
 			"gamebin"									"|gameinfo_path|bin"
 			"game+mod"									"|gameinfo_path|content/*"
+
 			// Get our shared Mapbase files.
 			// They should be right next to this mod.
 			"game+mod"									"|gameinfo_path|../mapbase_hl2"
