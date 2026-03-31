@@ -265,6 +265,10 @@ public:
 	virtual void			SendViewModelAnim( int nSequence );
 	float					GetViewModelSequenceDuration();	// Return how long the current view model sequence is.
 	bool					IsViewModelSequenceFinished( void ); // Returns if the viewmodel's current animation is finished
+	// FORSAKENED Weapon Lowering
+
+	virtual void			WeaponLowering();
+	bool					m_bWeaponLowered;
 
 	virtual void			SetViewModel();
 
@@ -338,10 +342,13 @@ public:
 	virtual void			SecondaryAttack( void ) { return; }			// do "+ATTACK2" // blya nahui eti EBJlaHbl void v argumentah pishut 
 
 	// FORSAKENED Weapon ironsights
-	
 	virtual void			EnableIronSights();
 	virtual void			DisableIronSights();
-	virtual Vector			GetIronSightPos();
+	virtual Vector			GetIronsightPos() const;
+	virtual QAngle			GetIronsightAng() const;
+	virtual float			GetIronsightFOV() const;
+	virtual void			SetIronsightTime();
+
 
 	// Firing animations
 	virtual Activity		GetPrimaryAttackActivity( void );
@@ -684,9 +691,12 @@ public:
 
 	// Networked fields
 	CNetworkVar( int, m_nViewModelIndex );
+	// FORSAKENED Weapon ironsight
+
+	CNetworkVar(bool, m_bIronSighted);
+	CNetworkVar(float, m_flIronsightTime);
 
 	// Weapon firing
-	CNetworkVar(bool, m_bIronSighted);
 	CNetworkVar( float, m_flNextPrimaryAttack );						// soonest time ItemPostFrame will call PrimaryAttack
 	CNetworkVar( float, m_flNextSecondaryAttack );					// soonest time ItemPostFrame will call SecondaryAttack
 	CNetworkVar( float, m_flTimeWeaponIdle );							// soonest time ItemPostFrame will call WeaponIdle

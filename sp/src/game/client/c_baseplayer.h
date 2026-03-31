@@ -507,6 +507,7 @@ protected:
 
 	// Used by prediction, sets the view angles for the player
 	virtual void SetLocalViewAngles( const QAngle &viewAngles );
+	// bool		 SetFOV(C_BaseEntity* pRequester, int FOV, float zoomRate);
 	virtual void SetViewAngles( const QAngle& ang );
 
 	// used by client side player footsteps 

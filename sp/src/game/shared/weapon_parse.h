@@ -103,6 +103,19 @@ public:
 #endif
 
 // SHARED
+	
+	// Ironsight variables below
+
+	Vector					IronsightPosOffset;
+	QAngle					IronsightAngOffset;
+	float					IronsightFOVOffset;
+
+	// Lowering wep variables
+	
+	Vector					WepLowerPosOffset;
+	QAngle					WepLowerAngOffset;
+	//
+
 	char					szClassName[MAX_WEAPON_STRING];
 	char					szPrintName[MAX_WEAPON_STRING];			// Name for showing in HUD, etc.
 
