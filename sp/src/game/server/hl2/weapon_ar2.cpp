@@ -340,8 +340,8 @@ void CWeaponAR2::DelayedAttack( void )
 	//Disorient the player
 	QAngle angles = pOwner->GetLocalAngles();
 
-	angles.x += random->RandomInt( -4, 4 );
-	angles.y += random->RandomInt( -4, 4 );
+	angles.x += random->RandomInt( -9, -6 );
+	angles.y += random->RandomInt( -5, 5 );
 	angles.z = 0;
 
 	pOwner->SnapEyeAngles( angles );

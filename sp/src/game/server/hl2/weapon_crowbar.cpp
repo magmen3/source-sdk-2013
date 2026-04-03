@@ -101,8 +101,8 @@ void CWeaponCrowbar::AddViewKick( void )
 
 	QAngle punchAng;
 
-	punchAng.x = random->RandomFloat( 1.0f, 2.0f );
-	punchAng.y = random->RandomFloat( -2.0f, -1.0f );
+	punchAng.x = random->RandomFloat( 4.0f, 8.0f );
+	punchAng.y = random->RandomFloat( -8.0f, -4.0f );
 	punchAng.z = 0.0f;
 	
 	pPlayer->ViewPunch( punchAng ); 

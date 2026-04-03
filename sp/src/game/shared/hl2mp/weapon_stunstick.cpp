@@ -307,6 +307,10 @@ void CWeaponStunStick::Operator_HandleAnimEvent( animevent_t *pEvent, CBaseComba
 
 				bool bFlashed = false;
 
+				//if (pEnemy && !pEnemy->IsAlive()) {
+				//	CRagdollBoogie::Create(pEnemy, 150, gpGlobals->curtime, 3.0f, SF_RAGDOLL_BOOGIE_ELECTRICAL);
+				//}
+
 #ifdef MAPBASE
 				CNPC_MetroPolice *pCop = dynamic_cast<CNPC_MetroPolice *>(pOperator);
 

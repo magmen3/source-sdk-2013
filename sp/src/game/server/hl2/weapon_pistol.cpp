@@ -527,7 +527,7 @@ bool CWeaponPistol::Reload( void )
 }
 
 #ifdef MAPBASE
-ConVar weapon_pistol_upwards_viewkick( "weapon_pistol_upwards_viewkick", "0" );
+ConVar weapon_pistol_upwards_viewkick( "weapon_pistol_upwards_viewkick", "1" );
 #endif
 
 //-----------------------------------------------------------------------------
@@ -543,12 +543,12 @@ void CWeaponPistol::AddViewKick( void )
 	QAngle	viewPunch;
 
 #ifdef MAPBASE
-	viewPunch.x = weapon_pistol_upwards_viewkick.GetBool() ? random->RandomFloat( -0.5f, -0.25f ) : random->RandomFloat( 0.25f, 0.5f );
+	viewPunch.x = weapon_pistol_upwards_viewkick.GetBool() ? random->RandomFloat( -2.5f, -1.5f ) : random->RandomFloat( 0.25f, 0.5f );
 #else
 	viewPunch.x = random->RandomFloat( 0.25f, 0.5f );
 #endif
-	viewPunch.y = random->RandomFloat( -.6f, .6f );
-	viewPunch.z = 0.0f;
+	viewPunch.y = random->RandomFloat( -0.7f, 0.7f );
+	viewPunch.z = random->RandomFloat( -1.2f, 1.2f );
 
 	//Add it to the view punch
 	pPlayer->ViewPunch( viewPunch );

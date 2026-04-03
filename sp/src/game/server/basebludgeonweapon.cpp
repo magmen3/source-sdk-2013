@@ -314,7 +314,7 @@ void CBaseHLBludgeonWeapon::ImpactEffect( trace_t &traceHit )
 		return;
 
 	//FIXME: need new decals
-	UTIL_ImpactTrace( &traceHit, DMG_CLUB );
+	//UTIL_ImpactTrace( &traceHit, DMG_CLUB );
 }
 
 //------------------------------------------------------------------------------

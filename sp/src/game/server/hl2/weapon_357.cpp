@@ -382,13 +382,13 @@ void CWeapon357::PrimaryAttack( void )
 	//Disorient the player
 	QAngle angles = pPlayer->GetLocalAngles();
 
-	angles.x += random->RandomInt( -1, 1 );
-	angles.y += random->RandomInt( -1, 1 );
+	angles.x += random->RandomInt( -8, -4 );
+	angles.y += random->RandomInt( -3, 3 );
 	angles.z = 0;
 
 	pPlayer->SnapEyeAngles( angles );
 
-	pPlayer->ViewPunch( QAngle( -8, random->RandomFloat( -2, 2 ), 0 ) );
+	pPlayer->ViewPunch( QAngle( -8, random->RandomFloat( -2, 2 ), random->RandomFloat( -2, 2 ) ) );
 
 	CSoundEnt::InsertSound( SOUND_COMBAT, GetAbsOrigin(), 600, 0.2, GetOwner() );
 

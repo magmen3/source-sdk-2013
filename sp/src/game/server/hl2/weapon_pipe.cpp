@@ -101,8 +101,8 @@ void CWeaponPipe::AddViewKick( void )
 
 	QAngle punchAng;
 
-	punchAng.x = random->RandomFloat( 2.0f, 4.0f );
-	punchAng.y = random->RandomFloat( -4.0f, -2.0f );
+	punchAng.x = random->RandomFloat( 6.0f, 10.0f );
+	punchAng.y = random->RandomFloat( -10.0f, -6.0f );
 	punchAng.z = 0.0f;
 	
 	pPlayer->ViewPunch( punchAng ); 

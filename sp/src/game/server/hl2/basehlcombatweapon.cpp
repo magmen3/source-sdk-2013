@@ -157,9 +157,9 @@ int CHLMachineGun::WeaponRangeAttack1Condition( float flDot, float flDist )
 //-----------------------------------------------------------------------------
 void CHLMachineGun::DoMachineGunKick( CBasePlayer *pPlayer, float dampEasy, float maxVerticleKickAngle, float fireDurationTime, float slideLimitTime )
 {
-	#define	KICK_MIN_X			0.2f	//Degrees
-	#define	KICK_MIN_Y			0.2f	//Degrees
-	#define	KICK_MIN_Z			0.1f	//Degrees
+	#define	KICK_MIN_X			2.5f	//Degrees
+	#define	KICK_MIN_Y			1.5f	//Degrees
+	#define	KICK_MIN_Z			8.5f	//Degrees
 
 	QAngle vecScratch;
 	
@@ -168,12 +168,21 @@ void CHLMachineGun::DoMachineGunKick( CBasePlayer *pPlayer, float dampEasy, floa
 	float kickPerc = duration / slideLimitTime;
 
 	// do this to get a hard discontinuity, clear out anything under 10 degrees punch
-	pPlayer->ViewPunchReset( 10 );
+	//pPlayer->ViewPunchReset( 10 );
 
 	//Apply this to the view angles as well
 	vecScratch.x = -( KICK_MIN_X + ( maxVerticleKickAngle * kickPerc ) );
 	vecScratch.y = -( KICK_MIN_Y + ( maxVerticleKickAngle * kickPerc ) ) / 3;
-	vecScratch.z = KICK_MIN_Z + ( maxVerticleKickAngle * kickPerc ) / 8;
+	vecScratch.z = KICK_MIN_Z + ( maxVerticleKickAngle * kickPerc ) / 4;
+
+	//Disorient the player
+	QAngle angles = pPlayer->GetLocalAngles();
+
+	angles.x -= (KICK_MIN_X + (maxVerticleKickAngle * kickPerc)) / 12;
+	angles.y -= (KICK_MIN_Y + (maxVerticleKickAngle * kickPerc)) * random->RandomInt(-1, 1);
+	angles.z = 0;
+
+	pPlayer->SnapEyeAngles(angles);
 
 	//Wibble left and right
 	if ( random->RandomInt( -1, 1 ) >= 0 )

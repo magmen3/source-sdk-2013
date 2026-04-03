@@ -1226,6 +1226,7 @@ void CPlayerPickupController::Use( CBaseEntity *pActivator, CBaseEntity *pCaller
 #endif
 			massFactor = RemapVal( massFactor, 0.5, 15, 0.5, 4 );
 			vecLaunch *= player_throwforce.GetFloat() * massFactor;
+			m_pPlayer->ViewPunch(QAngle(-3, 1, 1));
 
 			pPhys->ApplyForceCenter( vecLaunch );
 			AngularImpulse aVel = RandomAngularImpulse( -10, 10 ) * massFactor;

@@ -452,14 +452,14 @@ void CRagdollProp::OnPhysGunPickup( CBasePlayer *pPhysGunUser, PhysGunPickup_t r
 	if( HasPhysgunInteraction( "onpickup", "boogie" ) )
 #endif
 	{
-		if ( reason == PUNTED_BY_CANNON )
-		{
-			CRagdollBoogie::Create( this, 150, gpGlobals->curtime, 3.0f, SF_RAGDOLL_BOOGIE_ELECTRICAL );
-		}
-		else
-		{
-			CRagdollBoogie::Create( this, 150, gpGlobals->curtime, 2.0f, 0.0f );
-		}
+		//if ( reason == PUNTED_BY_CANNON )
+		//{
+		//	CRagdollBoogie::Create( this, 150, gpGlobals->curtime, 3.0f, SF_RAGDOLL_BOOGIE_ELECTRICAL );
+		//}
+		//else
+		//{
+		//	CRagdollBoogie::Create( this, 150, gpGlobals->curtime, 2.0f, 0.0f );
+		//}
 	}
 
 	if ( HasSpawnFlags( SF_RAGDOLLPROP_USE_LRU_RETIREMENT ) )

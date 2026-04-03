@@ -1547,7 +1547,7 @@ Vector CBaseCombatCharacter::CalcDamageForceVector( const CTakeDamageInfo &info 
 	if ( pForce )
 	{
 		// Calculate an impulse large enough to push a 75kg man 4 in/sec per point of damage
-		float forceScale = info.GetDamage() * 75 * 4;
+		float forceScale = info.GetDamage() * 75 * 3;
 
 		Vector forceVector;
 		// If the damage is a blast, point the force vector higher than usual, this gives 
